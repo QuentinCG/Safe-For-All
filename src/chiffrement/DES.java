@@ -11,17 +11,17 @@ import modeleDES.DESUtil;
 public class DES {
 
 	/**
-	 * La clé est sur 56 bits, soit 7 caractères ASCII.
+	 * La clÃ© est sur 56 bits, soit 7 caractÃ¨res ASCII.
 	 */
 	public static final String encode(String message,String key) throws Exception{
 		
 		if(message==null || message.length()==0) throw new Exception("Le message a chiffrer est vide.");
 		if(!Binary.isBinaryRepresentation(message))throw new Exception("Le message a chiffrer n'est pas sur sa forme binaire.");		
 		if(key==null) throw new Exception("La cle du chiffrement est vide.");
-		if(key.length()<7) throw new Exception("La cle du chiffrement doit etre de longueur superieur ou egale à 7.");
+		if(key.length()<7) throw new Exception("La cle du chiffrement doit etre de longueur superieur ou egale Ã  7.");
 		
 		String result = "" ;		
-		ArrayList<String> subMessages = DES.split(message); /* Découpe le message en sous messages de 64 bits */
+		ArrayList<String> subMessages = DES.split(message); /* DÃ©coupe le message en sous messages de 64 bits */
 		ArrayList<String> keys = DES.genereateKeySet(DESUtil.buildKey(key));
 		
 		for(int numMessage=0;numMessage<subMessages.size();numMessage++){
@@ -226,17 +226,17 @@ public class DES {
 	public static void main(String[] arg) throws Exception{
 		
 		String messageacacher4="Coucou, c'est quentin ! un gars de 22 ans !";
-		String key4 = "Aaù4-9wq";		
-		System.out.println("Cryptage DES :\nClef : "+key4+"\nTexte à chiffrer :   "+messageacacher4);
+		String key4 = "AaÃ¹4-9wq";		
+		System.out.println("Cryptage DES :\nClef : "+key4+"\nTexte Ã  chiffrer :   "+messageacacher4);
 
 		
 		String binary = DESUtil.messageToDESBinaryString(messageacacher4);
 		String crypted = DES.encode(binary, key4);
 		String valueCrypted = DESUtil.binaryStringToReadableMessage(crypted);
-		System.out.println("Message chiffré :    "+valueCrypted);
+		System.out.println("Message chiffrÃ© :    "+valueCrypted);
 		
 		String binaireValue = DESUtil.messageToDESBinaryString(valueCrypted);
 		String discrypted = DES.decode(binaireValue, key4);
-		System.out.println("Message déchiffré :  "+(DESUtil.AsciiDecoding(Binary.binaryStringToIntTable(discrypted)))+"\n");	
+		System.out.println("Message dÃ©chiffrÃ© :  "+(DESUtil.AsciiDecoding(Binary.binaryStringToIntTable(discrypted)))+"\n");	
 	}*/
 }

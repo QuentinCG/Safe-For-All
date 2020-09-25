@@ -5,7 +5,7 @@ public class AES {
 	
 	
 	final int Nb = 4;	//Nombre de colonne (toujours 4 pour AES)
-	final int Nk = 4;	//Nombre de mot dans la clé (un mot = 4 octet) (4 pour AES-128)
+	final int Nk = 4;	//Nombre de mot dans la clÃ© (un mot = 4 octet) (4 pour AES-128)
 	final int Nr = 10;	//Nombre de tour de ronde (10 pour AES-128)
 	
 	int key[];
@@ -74,7 +74,7 @@ public class AES {
 		key = new int[Nk * 4];
 		expandKey = new int[4 * Nk * (Nr +1)];
 		
-		//Decoupage de la clé format texte en format integer
+		//Decoupage de la clÃ© format texte en format integer
 		for (int i=0;i< (Nk * 4);i++){
 			key[i] = Integer.valueOf(cle.substring(i,i+1));
 		}
@@ -82,7 +82,7 @@ public class AES {
 		//Generation de rCon
 		rCon = new AESWord128[16];
 		genRCon();
-		//Generation des clés étendus
+		//Generation des clÃ©s Ã©tendus
 		expandKey = keyExpansion(key);
 		
 	}
@@ -91,7 +91,7 @@ public class AES {
 		key = new int[Nk * 4];
 		expandKey = new int[4 * Nk * (Nr +1)];
 		
-		//Decoupage de la clé format texte en format integer
+		//Decoupage de la clÃ© format texte en format integer
 		for (int i=0;i< (Nk * 4);i++){
 			key[i] = cle[i] + 128;
 		}
@@ -99,12 +99,12 @@ public class AES {
 		//Generation de rCon
 		rCon = new AESWord128[16];
 		genRCon();
-		//Generation des clés étendus
+		//Generation des clÃ©s Ã©tendus
 		expandKey = keyExpansion(key);
 	}
 	
 /****************************************************************************************************************
- * Procédure de chiffrement
+ * ProcÃ©dure de chiffrement
  ****************************************************************************************************************/
 	
 	/**
@@ -132,7 +132,7 @@ public class AES {
 		addTab(res,tmpbloc,i);
 		
 		while (i<mess.length) {
-			//Creation du bloc de 16bytes à chiffrer
+			//Creation du bloc de 16bytes Ã  chiffrer
 			if (i+16<=mess.length){
 				for (j=0; j<16;j++){
 					tmpbloc[j/4][j%4] = mess[i+j] + 128;
@@ -147,10 +147,10 @@ public class AES {
 					tmpbloc[j/4][j%4] = 0;
 			}
 
-			//Chiffrement des données
+			//Chiffrement des donnÃ©es
 			tmpbloc = chiffrerBloc(tmpbloc);
 			
-			//Ajout des données au tableau de resultat
+			//Ajout des donnÃ©es au tableau de resultat
 			addTab(res,tmpbloc,i+16);
 			
 			i+=16;
@@ -194,7 +194,7 @@ public class AES {
 	}
 	
 	/**
-	 * Chiffre un bloc 16 bytes rangés dans un tableau [4][4]
+	 * Chiffre un bloc 16 bytes rangÃ©s dans un tableau [4][4]
 	 */
 	private int[][] chiffrerBloc(int matrice[][]){
 		
@@ -233,7 +233,7 @@ public class AES {
 	}
 
 /****************************************************************************************************************
- * Construction des clés de rondes
+ * Construction des clÃ©s de rondes
  ****************************************************************************************************************/
 	
 	/**
@@ -258,7 +258,7 @@ public class AES {
 	}
 	
 	/**
-	 * Procede à la generation des clés de rondes 
+	 * Procede Ã  la generation des clÃ©s de rondes 
 	 */
 	private int[] keyExpansion(int k[])
 	{
@@ -303,7 +303,7 @@ public class AES {
 	}
 	
 	/**
-	 * Retourne la clé de ronde de la ronde round 
+	 * Retourne la clÃ© de ronde de la ronde round 
 	 * @round
 	 */
 	private int[] getRoundKey(int round)
@@ -319,7 +319,7 @@ public class AES {
 		
 	}
 	/**
-	 * Application de la sBox a un mot AES de clé de ronde
+	 * Application de la sBox a un mot AES de clÃ© de ronde
 	 * @param w
 	 * @return
 	 */
@@ -330,10 +330,10 @@ public class AES {
 	}
 
 /****************************************************************************************************************
- * Construction des differents tableaux utilisés
+ * Construction des differents tableaux utilisÃ©s
  ****************************************************************************************************************/
 	/**
-	 * Generation du tableau rCon utilisé pour créer les clés de rondes
+	 * Generation du tableau rCon utilisÃ© pour crÃ©er les clÃ©s de rondes
 	 */
 	private void genRCon()
 	{		
@@ -345,7 +345,7 @@ public class AES {
 	}	
 	
 /****************************************************************************************************************
- * Procédure de chiffrement
+ * ProcÃ©dure de chiffrement
  ****************************************************************************************************************/
 	
 	/**
@@ -420,7 +420,7 @@ public class AES {
 	}
 	
 /****************************************************************************************************************
- * Procédure de déchiffrement
+ * ProcÃ©dure de dÃ©chiffrement
  ****************************************************************************************************************/
 
 	/**
@@ -553,11 +553,11 @@ public class AES {
 	
 	
 /****************************************************************************************************************
- * Opérations sur les matrices
+ * OpÃ©rations sur les matrices
  ****************************************************************************************************************/
 	
 	/**
-	 * Ajoute au tableau de byte in le tableau add d'int converit en byte à partir de la position pos
+	 * Ajoute au tableau de byte in le tableau add d'int converit en byte Ã  partir de la position pos
 	 * @param in
 	 * @param add
 	 * @param pos
@@ -572,7 +572,7 @@ public class AES {
 	}
 	
 /****************************************************************************************************************
- * Opérations générales
+ * OpÃ©rations gÃ©nÃ©rales
  ****************************************************************************************************************/
 	
 	/**

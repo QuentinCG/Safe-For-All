@@ -143,7 +143,7 @@ public class DESUtil {
 	
 	/**
 	 * <p>Transforme un tableau de byte en un tampon de byte</p>
-	 * @param param Tableau à transformer
+	 * @param param Tableau Ã  transformer
 	 * @return Un Tampon de byte.
 	 */
 	public static final ByteBuffer byteTableToByteBuffer(ArrayList<Byte> param){
@@ -158,7 +158,7 @@ public class DESUtil {
 	
 	/**
 	 * <p>Transforme un tableau de byte en un tampon de byte</p>
-	 * @param param Tableau à transformer
+	 * @param param Tableau Ã  transformer
 	 * @return Un Tampon de byte.
 	 */
 	public static final ByteBuffer byteTableToByteBuffer(byte[] param){
@@ -173,8 +173,8 @@ public class DESUtil {
 	
 	/**
 	 * <p>Convertit 4 bytes en l'entier correspondant</p>
-	 * @param param Tableau de 4 bytes à convertir
-	 * @return L'entier correspondant à l'ensemble passe en parametre.
+	 * @param param Tableau de 4 bytes Ã  convertir
+	 * @return L'entier correspondant Ã  l'ensemble passe en parametre.
 	 */
 	public static final int bytesToInt(byte param[]) throws Exception{
 		return 	(param[0] & 0xFF) << 24 | 
@@ -187,7 +187,7 @@ public class DESUtil {
 
 	/**
 	 * <p> Convertit un entier en 4 bytes.</>
-	 * @param param L'entier à convertir.
+	 * @param param L'entier Ã  convertir.
 	 * @return Un tableau de 4 bytes representant un entier
 	 */
 	public static final  byte[] intToBytes(int param){

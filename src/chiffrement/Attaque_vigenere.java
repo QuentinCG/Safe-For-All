@@ -22,20 +22,20 @@ public class Attaque_vigenere {
 		
 		// Recherche de similitude
 		for(int i=1;i<messagecrypte.length()-2;i++){ // On parcours toutes les lettres
-			for(int j=i+3;j<messagecrypte.length()-2;j++){ // Pour ces lettres, on parcours toutes les lettres qui sont après
+			for(int j=i+3;j<messagecrypte.length()-2;j++){ // Pour ces lettres, on parcours toutes les lettres qui sont aprÃ¨s
 				if((messagecrypte.charAt(i)==messagecrypte.charAt(j)) && (messagecrypte.charAt(i+1)==messagecrypte.charAt(j+1)) && (messagecrypte.charAt(i+2)==messagecrypte.charAt(j+2) && messagecrypte.charAt(i-1)!=messagecrypte.charAt(j-1))){ 
-					//On regarde si il y a similitude entre les caractères messagecrypte[i-->i+2] et messagecrypte[j-->j+2]
+					//On regarde si il y a similitude entre les caractÃ¨res messagecrypte[i-->i+2] et messagecrypte[j-->j+2]
 					//System.out.println("Il y a similitude entre "+i+" et "+j+"\nLes diviseurs de j-i sont : "+factorsOf(j-i));
 					
 					List<Integer> maliste= factorsOf(j-i);
-				    for(int k=2;k<maliste.size();k++){ //On recupère les diviseurs et on remplit la table diviseurspossibles
+				    for(int k=2;k<maliste.size();k++){ //On recupÃ¨re les diviseurs et on remplit la table diviseurspossibles
 				    	diviseurspossibles[maliste.get(k)]+=1;
 				    }
 				    diviseurspossibles[j-i]+=1;	
 				}
 			}	
 		}
-		//for(int i=0;i<messagecrypte.length();i++) if(diviseurspossibles[i]>15) System.out.println(i+": "+diviseurspossibles[i]); // Afficher les longueurs de clefs les plus probables (à un module près ...)
+		//for(int i=0;i<messagecrypte.length();i++) if(diviseurspossibles[i]>15) System.out.println(i+": "+diviseurspossibles[i]); // Afficher les longueurs de clefs les plus probables (Ã  un module prÃ¨s ...)
 		
 		
 		
@@ -58,7 +58,7 @@ public class Attaque_vigenere {
 		 System.out.println("La clef a une longueur de "+vraiclef);
 		 tailleclef=vraiclef;
 
-		 // Connaissant la taille de la clef, on peut découper le texte en autant de sous-textes, chacun d'entre eux étant obtenu par un même chiffre de César,
+		 // Connaissant la taille de la clef, on peut dÃ©couper le texte en autant de sous-textes, chacun d'entre eux Ã©tant obtenu par un mÃªme chiffre de CÃ©sar,
 		 // A FAIRE / http://pageperso.lif.univ-mrs.fr/~michel.vancaneghem/deug/documents/tp4.pdf
 		/* StringBuilder messagecryptecesar = new StringBuilder();
 		 char temp;

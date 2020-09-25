@@ -8,11 +8,11 @@ public class Creationclef {
 	private String type_de_cryptage;
 	public static final String BOUTTON_AES = "AES 128 bits";
 	public static final String BOUTTON_DES = "DES 56 bits";
-	public static final String BOUTTON_VIGENERE = "Vigenère";
-	public static final String BOUTTON_CESAR_AMELIORE = "César amélioré";
-	public static final String BOUTTON_CESAR_CLASSIQUE = "César classique";
+	public static final String BOUTTON_VIGENERE = "VigenÃ¨re";
+	public static final String BOUTTON_CESAR_AMELIORE = "CÃ©sar amÃ©liorÃ©";
+	public static final String BOUTTON_CESAR_CLASSIQUE = "CÃ©sar classique";
 	public static final String BOUTTON_RSA = "RSA";
-	public static final String BOUTTON_VIGENERE_AMELIORE = "Vigenère amélioré";
+	public static final String BOUTTON_VIGENERE_AMELIORE = "VigenÃ¨re amÃ©liorÃ©";
 
 
 	public Creationclef(String cryptage){
@@ -26,7 +26,7 @@ public class Creationclef {
 			return (char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256);
 
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}
 	
 	public String clefDES(){
@@ -34,7 +34,7 @@ public class Creationclef {
 			Random r = new Random();
 			return (char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256)+""+(char)r.nextInt(256);
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}
 	
 	public String clefCESARAMELIORE(){
@@ -73,9 +73,9 @@ public class Creationclef {
 			if(centaine!=0) return (char)(48+centaine)+""+(char)(48+dizaine)+""+(char)(48+unite);	
 			else if(centaine==0 && dizaine!=0) return (char)(48+dizaine)+""+(char)(48+unite);	
 			else if(centaine==0 && dizaine==0) return Character.toString((char)(48+unite));	
-			else return "Probleme de création de la clef";
+			else return "Probleme de crÃ©ation de la clef";
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}
 	
 	public String clefVIGENERE(){
@@ -83,7 +83,7 @@ public class Creationclef {
 			Random r = new Random();
 			return (char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26));
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}
 	
 	public String clefVIGENEREAMELIORE(){
@@ -91,7 +91,7 @@ public class Creationclef {
 			Random r = new Random();
 			return (char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26))+""+(char)('A'+r.nextInt(26));
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}
 	
 	public String clefCESARCLASSIQUE(){
@@ -118,7 +118,7 @@ public class Creationclef {
 			if(dizaine!=0) return (char)(48+dizaine)+""+(char)(48+unite);	
 			else return Character.toString((char)(48+unite));	
 		}
-		else return "Probleme de création de la clef";
+		else return "Probleme de crÃ©ation de la clef";
 	}	
 	
 	

@@ -86,11 +86,11 @@ public static final String LOGO_IMG = "logo.png";
 /* Variables statiques pour le menu */
 public static final String NOUVEAU = "Nouveau projet";
 public static final String OUVRIR_CLEF = "Ouvrir une clef";
-public static final String OUVRIR_FICHIER = "Ouvrir un fichier non cypté";
-public static final String OUVRIR_FICHIER_CRYPTE = "Ouvrir un fichier crypté";
+public static final String OUVRIR_FICHIER = "Ouvrir un fichier non cyptÃ©";
+public static final String OUVRIR_FICHIER_CRYPTE = "Ouvrir un fichier cryptÃ©";
 public static final String ENREGISTRERSOUS_CLEF = "Enregistrer la clef";
-public static final String ENREGISTRERSOUS_FICHIER = "Enregistrer le fichier non crypté";
-public static final String ENREGISTRERSOUS_FICHIER_CRYPTE = "Enregistrer le fichier crypté";
+public static final String ENREGISTRERSOUS_FICHIER = "Enregistrer le fichier non cryptÃ©";
+public static final String ENREGISTRERSOUS_FICHIER_CRYPTE = "Enregistrer le fichier cryptÃ©";
 public static final String IMPRIMER = "Imprimer";
 public static final String EXPORTER_PDF = "Exporter le projet au format PDF";
 public static final String QUITTER = "Quitter";
@@ -103,44 +103,44 @@ public static final String AIDE = "Aide";
 public static final String APROPOS = "A propos";
 public static final String BOUTTON_AES = "AES 128 bits";
 public static final String BOUTTON_DES = "DES 56 bits";
-public static final String BOUTTON_VIGENERE = "Vigenère";
-public static final String BOUTTON_VIGENERE_AMELIORE = "Vigenère amélioré";
-public static final String BOUTTON_CESAR_AMELIORE = "César amélioré";
-public static final String BOUTTON_CESAR_CLASSIQUE = "César classique";
+public static final String BOUTTON_VIGENERE = "VigenÃ¨re";
+public static final String BOUTTON_VIGENERE_AMELIORE = "VigenÃ¨re amÃ©liorÃ©";
+public static final String BOUTTON_CESAR_AMELIORE = "CÃ©sar amÃ©liorÃ©";
+public static final String BOUTTON_CESAR_CLASSIQUE = "CÃ©sar classique";
 public static final String BOUTTON_RSA = "RSA";
 public static final String BOUTTON_LANCER_CRYPTAGE = "Lancer le cryptage";
-public static final String BOUTTON_LANCER_DECRYPTAGE = "Lancer le décryptage";
+public static final String BOUTTON_LANCER_DECRYPTAGE = "Lancer le dÃ©cryptage";
 public static final String CHERCHER_CLEF = "Chercher la clef de cryptage";
-public static final String BOUTTON_LANCER_CREATION_CLEF = "Creer une clef aléatoire";
-public String choixcryptage=BOUTTON_CESAR_AMELIORE; /* Le type de cryptage que l'utilisateur a séléctionné (par défaut : AES) */
+public static final String BOUTTON_LANCER_CREATION_CLEF = "Creer une clef alÃ©atoire";
+public String choixcryptage=BOUTTON_CESAR_AMELIORE; /* Le type de cryptage que l'utilisateur a sÃ©lÃ©ctionnÃ© (par dÃ©faut : AES) */
 public String Element_clique = "null";
 /* Elements que l'on utilise pour le cryptage */
 public JEditorPane texte_message_decrypte = new JEditorPane();
 public JEditorPane texte_message_crypte = new JEditorPane();
 public JLabel supertitre = new JLabel("Cryptage de type "+choixcryptage);
-public JLabel supertitre2 = new JLabel("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être composée de 7 caractères ASCII<br/> - Le message n'a pas de restriction particulière</html>");
+public JLabel supertitre2 = new JLabel("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre composÃ©e de 7 caractÃ¨res ASCII<br/> - Le message n'a pas de restriction particuliÃ¨re</html>");
 public JTextField texte_clef = new JTextField("Clef de cryptage");
 public JButton chercherlaclef = new JButton(CHERCHER_CLEF);
 
 Fenetre(String titre){
 		
-	/* --------------------------------------------------- Definition de notre fenêtre de base ------------------------------- */
+	/* --------------------------------------------------- Definition de notre fenÃªtre de base ------------------------------- */
 		super(titre);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /*permet de quitter l'application en même temps que la fenêtre*/
-		/* Fenêtre compatible avec des écrans de tailles superieurs ou égaux à 800x600 : */
-		this.setLocation(0,0); /* Où se trouve la fenêtre par défaut */
-		this.setSize(1024,768); /* Taille de la fenêtre par défaut */
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); /*permet de quitter l'application en mÃªme temps que la fenÃªtre*/
+		/* FenÃªtre compatible avec des Ã©crans de tailles superieurs ou Ã©gaux Ã  800x600 : */
+		this.setLocation(0,0); /* OÃ¹ se trouve la fenÃªtre par dÃ©faut */
+		this.setSize(1024,768); /* Taille de la fenÃªtre par dÃ©faut */
 	    this.setLayout(new BorderLayout());	
 	   this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(LOGO_IMG)));  // Icone
-	/* --------------------------------------------------- Fin de la definition de notre fenêtre de base --------------------- */
+	/* --------------------------------------------------- Fin de la definition de notre fenÃªtre de base --------------------- */
 	/* --------------------------------------------------- LE MENU ------------------------------------------------------------*/
 		/* Notre menu : */
-			JMenuBar m= new JMenuBar(); /* Création du menu */
+			JMenuBar m= new JMenuBar(); /* CrÃ©ation du menu */
 			
 		/* Barre de menu "Fichier" */
 			JMenu fichiers=new JMenu("Fichier"); 
 	
-			JMenuItem nouveau = new JMenuItem(NOUVEAU, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(NOUVEAU_IMG)))) ; /* Les élements de Fichier */
+			JMenuItem nouveau = new JMenuItem(NOUVEAU, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(NOUVEAU_IMG)))) ; /* Les Ã©lements de Fichier */
 			nouveau.setAccelerator(KeyStroke.getKeyStroke('N',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask(),false));
 			nouveau.addActionListener(this);	
 			JMenuItem ouvrirclef = new JMenuItem(OUVRIR_CLEF, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(OUVRIR_CLEF_IMG)))) ;
@@ -167,7 +167,7 @@ Fenetre(String titre){
 			quitter.setAccelerator(KeyStroke.getKeyStroke('Q',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask(),false));
 			quitter.addActionListener(this);
 			
-			fichiers.add(nouveau); /* Ajouter les éléments séparés au menu fichiers */
+			fichiers.add(nouveau); /* Ajouter les Ã©lÃ©ments sÃ©parÃ©s au menu fichiers */
 			fichiers.add(ouvrirclef);
 			fichiers.add(ouvrirfichier);
 			fichiers.add(ouvrirfichiercrypte);
@@ -180,7 +180,7 @@ Fenetre(String titre){
 			fichiers.addSeparator(); 
 			fichiers.add(quitter);
 								
-			m.add(fichiers); /* Ajouter fichiers à la barre de menu */
+			m.add(fichiers); /* Ajouter fichiers Ã  la barre de menu */
 	
 		/* Barre de menu "Edition" */
 	
@@ -202,22 +202,22 @@ Fenetre(String titre){
 			coller.setAccelerator(KeyStroke.getKeyStroke('V',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask(),false));
 			coller.addActionListener(this);	
 			
-			/*edition.add(annuler); // Ajouter les éléments séparés au menu edition	
+			/*edition.add(annuler); // Ajouter les Ã©lÃ©ments sÃ©parÃ©s au menu edition	
 			edition.add(retablir);	
 			edition.addSeparator(); */
 			edition.add(couper);	
 			edition.add(copier);	
 			edition.add(coller);	
 			
-			m.add(edition); // Ajouter édition à la barre de menu 
+			m.add(edition); // Ajouter Ã©dition Ã  la barre de menu 
 		
 		
 			
-		/* Barre de menu "Cryptages symétriques puis asymétriques" */
+		/* Barre de menu "Cryptages symÃ©triques puis asymÃ©triques" */
 			
 			JMenu cryptages=new JMenu("Type de cryptage"); 
 			
-			JMenuItem boutton_aes = new JMenuItem(BOUTTON_AES, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(CRYPTAGE_IMG)))) ; /* Les élements de Cryptages */
+			JMenuItem boutton_aes = new JMenuItem(BOUTTON_AES, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(CRYPTAGE_IMG)))) ; /* Les Ã©lements de Cryptages */
 			boutton_aes.addActionListener(this);	
 			JMenuItem boutton_des = new JMenuItem(BOUTTON_DES, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(CRYPTAGE_IMG)))) ;
 			boutton_des.addActionListener(this);
@@ -232,7 +232,7 @@ Fenetre(String titre){
 			JMenuItem boutton_rsa = new JMenuItem(BOUTTON_RSA, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(CRYPTAGE_IMG)))) ;
 			boutton_rsa.addActionListener(this);	
 			
-			//cryptages.add(boutton_aes); /* Ajouter les éléments séparés au menu cryptages */	
+			//cryptages.add(boutton_aes); /* Ajouter les Ã©lÃ©ments sÃ©parÃ©s au menu cryptages */	
 			cryptages.add(boutton_des);	
 			cryptages.add(boutton_vigenere);	
 			cryptages.add(boutton_vigenere_ameliore);	
@@ -241,24 +241,24 @@ Fenetre(String titre){
 			//cryptages.addSeparator(); 			
 			//cryptages.add(boutton_rsa);	
 			
-			m.add(cryptages); /* Ajouter édition à la barre de menu */
+			m.add(cryptages); /* Ajouter Ã©dition Ã  la barre de menu */
 		
 			
 		/* Barre de menu "A Propos" */
 			
 			JMenu menuapropos=new JMenu(APROPOS); 
 			
-			JMenuItem aide = new JMenuItem(AIDE, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(AIDE_IMG)))) ; /* Les élements de A Propos */
+			JMenuItem aide = new JMenuItem(AIDE, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(AIDE_IMG)))) ; /* Les Ã©lements de A Propos */
 			aide.setAccelerator(KeyStroke.getKeyStroke('H',Toolkit.getDefaultToolkit().getMenuShortcutKeyMask(),false));
 			aide.addActionListener(this);	
 			JMenuItem apropos = new JMenuItem(APROPOS, new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(APROPOS_IMG)))) ;
 			apropos.addActionListener(this);				
 			
-			menuapropos.add(aide); /* Ajouter les éléments séparés au menu A Propos */	
+			menuapropos.add(aide); /* Ajouter les Ã©lÃ©ments sÃ©parÃ©s au menu A Propos */	
 			menuapropos.addSeparator(); 			
 			menuapropos.add(apropos);	
 			
-			m.add(menuapropos); /* Ajouter A Propos à la barre de menu */
+			m.add(menuapropos); /* Ajouter A Propos Ã  la barre de menu */
 
 			
 		this.setJMenuBar(m); /* Afficher le menu complet */
@@ -323,7 +323,7 @@ Fenetre(String titre){
 	    //combo.addItemListener(this);
 	    combo.setMaximumSize(new Dimension(200, 20));
 	    
-	    JLabel bouttonseparateur= new JLabel("Type de cryptage utilisé : ");
+	    JLabel bouttonseparateur= new JLabel("Type de cryptage utilisÃ© : ");
 	    bouttonseparateur.setBorder(BorderFactory.createEmptyBorder());
 		*/
 		toolBar.add(nouveau2);
@@ -364,7 +364,7 @@ Fenetre(String titre){
 		    panelmarge.add(supertitre);
 		    container.add(panelmarge);	
 
-	    /* Paragraphe expliquant les modalités du cryptage en question */
+	    /* Paragraphe expliquant les modalitÃ©s du cryptage en question */
 		    JPanel panelexplication = new JPanel();    
 		    panelexplication.setPreferredSize(new Dimension(this.getWidth()+600,100)); 
 		    //JLabel supertitre2 = new JLabel("La clef de cryptage doit ....");
@@ -386,7 +386,7 @@ Fenetre(String titre){
 		    panelclef.setPreferredSize(new Dimension(this.getWidth()+600,35));
 		   // JTextField texte_clef = new JTextField("Clef de cryptage");
 		    texte_clef.setPreferredSize(new Dimension(525,25));
-		    texte_clef.setToolTipText("Clé à utiliser pour l'opération de chiffrement/déchiffrement");
+		    texte_clef.setToolTipText("ClÃ© Ã  utiliser pour l'opÃ©ration de chiffrement/dÃ©chiffrement");
 		    texte_clef.addMouseListener(new java.awt.event.MouseAdapter() {
 		        public void mouseClicked(MouseEvent e)
 		        {
@@ -407,7 +407,7 @@ Fenetre(String titre){
 		    paneltxtdecrypte.setPreferredSize(new Dimension(this.getWidth()+700,150));
 		    //JEditorPane texte_message_decrypte = new JEditorPane();
 		    texte_message_decrypte.setPreferredSize(new Dimension(700,130));
-		    texte_message_decrypte.setText("Message décrypté");
+		    texte_message_decrypte.setText("Message dÃ©cryptÃ©");
 		    texte_message_decrypte.addMouseListener(new java.awt.event.MouseAdapter() {
 		        public void mouseClicked(MouseEvent e)
 		        {
@@ -415,7 +415,7 @@ Fenetre(String titre){
 		        } 
 		    });
 		   // texte_message_decrypte.addMouseListener(this);
-		    paneltxtdecrypte.add(new JLabel("Votre message décrypté : "));
+		    paneltxtdecrypte.add(new JLabel("Votre message dÃ©cryptÃ© : "));
 		    
 		    JScrollPane scrollpane = new JScrollPane(texte_message_decrypte);
 		    paneltxtdecrypte.add(scrollpane);
@@ -428,14 +428,14 @@ Fenetre(String titre){
 		    paneltxtcrypte.setPreferredSize(new Dimension(this.getWidth()+700,185));
 		    //JEditorPane texte_message_crypte = new JEditorPane();
 		    texte_message_crypte.setPreferredSize(new Dimension(700,150));
-		    texte_message_crypte.setText("Message crypté");
+		    texte_message_crypte.setText("Message cryptÃ©");
 		    texte_message_crypte.addMouseListener(new java.awt.event.MouseAdapter() {
 		        public void mouseClicked(MouseEvent e)
 		        {
 		        	Element_clique="texte_message_crypte";
 		        } 
 		    });
-		    paneltxtcrypte.add(new JLabel("Votre message crypté :      "));
+		    paneltxtcrypte.add(new JLabel("Votre message cryptÃ© :      "));
 		   // paneltxtcrypte.add(texte_message_crypte);	
 		    
 		    JScrollPane scrollpane2 = new JScrollPane(texte_message_crypte);
@@ -471,7 +471,7 @@ Fenetre(String titre){
 		/* --------------------------------------------------- Fin de notre fenetre de cryptage --------------------------*/
 	    
 	    
-		this.setVisible(true); /* Autoriser l'affichage de la fenêtre (à mettre à la fin de notre fonction */
+		this.setVisible(true); /* Autoriser l'affichage de la fenÃªtre (Ã  mettre Ã  la fin de notre fonction */
 	}
 	
 	
@@ -481,13 +481,13 @@ Fenetre(String titre){
 	
 		public void gererPageCryptage(){
 			if(choixcryptage==BOUTTON_RSA){
-				// RSA est un cryptage asymétrique (--> 2 clefs, 1 String crypté, 1 String décrypté)
-				System.out.println("Ouverture d'une page pour le cryptage asymétrique.\nEn effet, le choix de cryptage est de type "+choixcryptage);
+				// RSA est un cryptage asymÃ©trique (--> 2 clefs, 1 String cryptÃ©, 1 String dÃ©cryptÃ©)
+				System.out.println("Ouverture d'une page pour le cryptage asymÃ©trique.\nEn effet, le choix de cryptage est de type "+choixcryptage);
 			}
 			else 
 			{
-				// Tout les autres cryptages sont de type cryptage symétrique (--> 1 clef, 1 String crypté, 1 String décrypté)
-				System.out.println("Ouverture d'une page pour le cryptage symétrique.\nEn effet, le choix de cryptage est de type "+choixcryptage);
+				// Tout les autres cryptages sont de type cryptage symÃ©trique (--> 1 clef, 1 String cryptÃ©, 1 String dÃ©cryptÃ©)
+				System.out.println("Ouverture d'une page pour le cryptage symÃ©trique.\nEn effet, le choix de cryptage est de type "+choixcryptage);
 		
 			}
 		}
@@ -498,11 +498,11 @@ Fenetre(String titre){
 		
 	/* --------------------------------------------------- ACTIONS LORSQUE L'ON CLIQUE SUR UN BOUTTON --------------------------------------*/
 	
-// Les méthodes des actions
+// Les mÃ©thodes des actions
 		
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-		System.out.println("Vous avez appuyé sur " +cmd);
+		System.out.println("Vous avez appuyÃ© sur " +cmd);
 
 		
 		if(cmd.equals(QUITTER)) {
@@ -531,14 +531,14 @@ Fenetre(String titre){
 		
 		else if(cmd.equals(EXPORTER_PDF)){
 			
-		// L'utilisateur choisi l'endoit où il enregistre le projet
+		// L'utilisateur choisi l'endoit oÃ¹ il enregistre le projet
 			JFileChooser dialogue3 = new JFileChooser(new File("."));
 			String chemin_fichier_enregistrer;
 			if(dialogue3.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
 			    chemin_fichier_enregistrer = dialogue3.getSelectedFile().getPath();
 			    System.out.println(chemin_fichier_enregistrer);
 			    
-	    // Création du PDF
+	    // CrÃ©ation du PDF
 			    
 			      Document document=new Document();
 			      try {
@@ -549,28 +549,28 @@ Fenetre(String titre){
 				      Image img = Image.getInstance(url1);
 				      document.add(img);
 				      document.add(new Paragraph("\n\n"));
-				      document.add(new Paragraph("Le cryptage utilisé est de type "+choixcryptage+"\n\n"));
-				      document.add(new Paragraph("La clef utilisée est :\n")); 			      
+				      document.add(new Paragraph("Le cryptage utilisÃ© est de type "+choixcryptage+"\n\n"));
+				      document.add(new Paragraph("La clef utilisÃ©e est :\n")); 			      
 				      document.add(new Paragraph(texte_clef.getText()));
 				      document.add(new Paragraph("\nLe message en clair est :\n")); 			      
 				      document.add(new Paragraph(texte_message_decrypte.getText()));
-				      document.add(new Paragraph("\nLe message crypté est :\n")); 			      
+				      document.add(new Paragraph("\nLe message cryptÃ© est :\n")); 			      
 				      document.add(new Paragraph(texte_message_crypte.getText()));
-				      document.add(new Paragraph("\n\n\nL'application \"Safe for all v1.0\" créée par Quentin Comte-Gaz se trouve à l'adresse :"));
+				      document.add(new Paragraph("\n\n\nL'application \"Safe for all v1.0\" crÃ©Ã©e par Quentin Comte-Gaz se trouve Ã  l'adresse :"));
 				      com.itextpdf.text.Font blueFont = new com.itextpdf.text.Font();
 				      blueFont.setColor(0,0,0xFF);
 				      document.add(new Chunk("https://github.com/QuentinCG/Safe-For-All", blueFont).setAnchor("https://github.com/QuentinCG/Safe-For-All"));
 				     
 				      document.close(); 
-				      JOptionPane.showMessageDialog(null,"Votre fichier PDF a bien été exporté à l'adresse "+chemin_fichier_enregistrer+".pdf", "Fichier PDF exporté", JOptionPane.INFORMATION_MESSAGE);  
+				      JOptionPane.showMessageDialog(null,"Votre fichier PDF a bien Ã©tÃ© exportÃ© Ã  l'adresse "+chemin_fichier_enregistrer+".pdf", "Fichier PDF exportÃ©", JOptionPane.INFORMATION_MESSAGE);  
 				} catch (DocumentException | IOException e1) {
-						JOptionPane.showMessageDialog(null,"Votre fichier PDF n'a pas pu etre créé pour une raison inconnue.", "Fichier PDF non exporté", JOptionPane.INFORMATION_MESSAGE);  
+						JOptionPane.showMessageDialog(null,"Votre fichier PDF n'a pas pu etre crÃ©Ã© pour une raison inconnue.", "Fichier PDF non exportÃ©", JOptionPane.INFORMATION_MESSAGE);  
 
 				}			    
 			    
 			}
 			else {
-				//JOptionPane.showMessageDialog(null,"Vous n'avez pas selectionné l'adresse du fichier, il se trouvera donc à l'endoit où se trouve l'application.", "Fichier PDF non exporté", JOptionPane.INFORMATION_MESSAGE);
+				//JOptionPane.showMessageDialog(null,"Vous n'avez pas selectionnÃ© l'adresse du fichier, il se trouvera donc Ã  l'endoit oÃ¹ se trouve l'application.", "Fichier PDF non exportÃ©", JOptionPane.INFORMATION_MESSAGE);
 			}
 		
 		      
@@ -601,8 +601,8 @@ Fenetre(String titre){
 		
 		else if(cmd.equals(APROPOS) || cmd.equals(AIDE)){
 			ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(LOGO_IMG)));
-			if(cmd.equals(APROPOS)) JOptionPane.showMessageDialog(null,"<html>Logiciel : Safe for all<br />Version : 1.0<br />© Tous droits réservés 2012-2013<br /><br />Auteur : Quentin Comte-Gaz<br />Site de l'éditeur : https://quentin.comte-gaz.com</html>" , APROPOS, JOptionPane.INFORMATION_MESSAGE, img);      
-			else JOptionPane.showMessageDialog(null,"Aide complète en ligne à l'adresse :\nhttps://github.com/QuentinCG/Safe-For-All" , AIDE, JOptionPane.INFORMATION_MESSAGE, img);      
+			if(cmd.equals(APROPOS)) JOptionPane.showMessageDialog(null,"<html>Logiciel : Safe for all<br />Version : 1.0<br />Â© Tous droits rÃ©servÃ©s 2012-2013<br /><br />Auteur : Quentin Comte-Gaz<br />Site de l'Ã©diteur : https://quentin.comte-gaz.com</html>" , APROPOS, JOptionPane.INFORMATION_MESSAGE, img);      
+			else JOptionPane.showMessageDialog(null,"Aide complÃ¨te en ligne Ã  l'adresse :\nhttps://github.com/QuentinCG/Safe-For-All" , AIDE, JOptionPane.INFORMATION_MESSAGE, img);      
 	
 		}
 		else if(cmd.equals(NOUVEAU)){
@@ -620,7 +620,7 @@ Fenetre(String titre){
 				ReadFile maclef = new ReadFile(chemin_clef_ouvrir);
 				texte_clef.setText(maclef.chaine);
 			}
-			else System.out.println("Vous n'avez pas selectionné de fichier !");			
+			else System.out.println("Vous n'avez pas selectionnÃ© de fichier !");			
 		}
 		
 		else if(cmd.equals(OUVRIR_FICHIER)){
@@ -632,7 +632,7 @@ Fenetre(String titre){
 				texte_message_decrypte.setText(momfichier.chaine);   
 			
 			}
-			else System.out.println("VVous n'avez pas selectionné de fichier !");			
+			else System.out.println("VVous n'avez pas selectionnÃ© de fichier !");			
 		}
 		
 		else if(cmd.equals(OUVRIR_FICHIER_CRYPTE)){
@@ -644,7 +644,7 @@ Fenetre(String titre){
 				texte_message_crypte.setText(momfichier.chaine);   
 			
 			}
-			else System.out.println("VVous n'avez pas selectionné de fichier !");			
+			else System.out.println("VVous n'avez pas selectionnÃ© de fichier !");			
 		}
 		
 		else if(cmd.equals(ENREGISTRERSOUS_FICHIER)){
@@ -654,7 +654,7 @@ Fenetre(String titre){
 			    System.out.println(chemin_fichier_enregistrer);
 				new SaveFile(chemin_fichier_enregistrer+".txt",texte_message_decrypte.getText());			    
 			}
-			else System.out.println("Vous n'avez pas selectionné l'adresse du fichier !");			
+			else System.out.println("Vous n'avez pas selectionnÃ© l'adresse du fichier !");			
 		}
 		
 		else if(cmd.equals(ENREGISTRERSOUS_FICHIER_CRYPTE)){
@@ -664,7 +664,7 @@ Fenetre(String titre){
 			    System.out.println(chemin_fichier_enregistrer);
 				new SaveFile(chemin_fichier_enregistrer+".txt",texte_message_crypte.getText());			    
 			}
-			else System.out.println("Vous n'avez pas selectionné l'adresse du fichier !");			
+			else System.out.println("Vous n'avez pas selectionnÃ© l'adresse du fichier !");			
 		}
 		
 		else if(cmd.equals(ENREGISTRERSOUS_CLEF)){
@@ -674,21 +674,21 @@ Fenetre(String titre){
 			    System.out.println(chemin_clef_enregistrer2);
 				new SaveFile(chemin_clef_enregistrer2+".txt",texte_clef.getText());			    
 				}
-			else System.out.println("Vous n'avez pas selectionné l'adresse du fichier !");	
+			else System.out.println("Vous n'avez pas selectionnÃ© l'adresse du fichier !");	
 		}
 		
 		else if(cmd.equals(BOUTTON_AES) || cmd.equals(BOUTTON_DES) || cmd.equals(BOUTTON_VIGENERE) || cmd.equals(BOUTTON_VIGENERE_AMELIORE) || cmd.equals(BOUTTON_CESAR_AMELIORE) || cmd.equals(BOUTTON_CESAR_CLASSIQUE) || cmd.equals(BOUTTON_RSA)){
-			choixcryptage=cmd;	// On choisit le type de cryptage en fonction du bouton appuyé	
+			choixcryptage=cmd;	// On choisit le type de cryptage en fonction du bouton appuyÃ©	
 			supertitre.setText("Cryptage de type "+choixcryptage);
 			System.out.println("Notre nouveau cryptage est : "+choixcryptage);
 			
-			if(cmd.equals(BOUTTON_AES)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être constituée de 16 caractères ASCII<br/> - Le message n'a pas de restriction particulière</html>");
-			if(cmd.equals(BOUTTON_DES)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être constituée de 7 caractères ASCII<br/> - Le message n'a pas de restriction particulière</html>");
-			if(cmd.equals(BOUTTON_VIGENERE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être constituée uniquement de lettres<br/> - Seul les lettres du message seront cryptées, les autres caractères (0->9,&é\"...) seront donc effacés, de plus, les lettres en minuscules seront transformées en majuscules</html>");
-			if(cmd.equals(BOUTTON_VIGENERE_AMELIORE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être constituée uniquement de lettres<br/> - Seul les lettres du message seront cryptées, les autres caractères (0->9,&é\"...) ne seront pas cryptés mais seront toujours présents</html>");
-			if(cmd.equals(BOUTTON_CESAR_AMELIORE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être un entier compris entre 0 et 224<br/> - Le message n'a pas de restriction particulière</html>");
-			if(cmd.equals(BOUTTON_CESAR_CLASSIQUE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit être un entier compris entre 0 et 26<br/> - Seul les lettres du message seront cryptées, les autres caractères ne seront cependant pas effacés</html>");
-			if(cmd.equals(BOUTTON_RSA)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef privée et publique vous sont fournit par defaut<br/> - Le message n'a pas de restriction particulière</html>");
+			if(cmd.equals(BOUTTON_AES)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre constituÃ©e de 16 caractÃ¨res ASCII<br/> - Le message n'a pas de restriction particuliÃ¨re</html>");
+			if(cmd.equals(BOUTTON_DES)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre constituÃ©e de 7 caractÃ¨res ASCII<br/> - Le message n'a pas de restriction particuliÃ¨re</html>");
+			if(cmd.equals(BOUTTON_VIGENERE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre constituÃ©e uniquement de lettres<br/> - Seul les lettres du message seront cryptÃ©es, les autres caractÃ¨res (0->9,&Ã©\"...) seront donc effacÃ©s, de plus, les lettres en minuscules seront transformÃ©es en majuscules</html>");
+			if(cmd.equals(BOUTTON_VIGENERE_AMELIORE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre constituÃ©e uniquement de lettres<br/> - Seul les lettres du message seront cryptÃ©es, les autres caractÃ¨res (0->9,&Ã©\"...) ne seront pas cryptÃ©s mais seront toujours prÃ©sents</html>");
+			if(cmd.equals(BOUTTON_CESAR_AMELIORE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre un entier compris entre 0 et 224<br/> - Le message n'a pas de restriction particuliÃ¨re</html>");
+			if(cmd.equals(BOUTTON_CESAR_CLASSIQUE)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef de cryptage doit Ãªtre un entier compris entre 0 et 26<br/> - Seul les lettres du message seront cryptÃ©es, les autres caractÃ¨res ne seront cependant pas effacÃ©s</html>");
+			if(cmd.equals(BOUTTON_RSA)) supertitre2.setText("<html>Conditions d'utilisation :<br/> - La clef privÃ©e et publique vous sont fournit par defaut<br/> - Le message n'a pas de restriction particuliÃ¨re</html>");
 			
 			if(cmd.equals(BOUTTON_RSA) || cmd.equals(BOUTTON_AES) ||  cmd.equals(BOUTTON_DES))
 				chercherlaclef.setVisible(false);	
@@ -741,7 +741,7 @@ Fenetre(String titre){
 			System.out.println("Debut du cryptage "+choixcryptage);
 			String messageacrypter = texte_message_decrypte.getText();
 			String maclef = texte_clef.getText();
-			System.out.println("Debut du cryptage type "+choixcryptage+" en utilisant la clef \""+maclef+"\" et le message à crypter \""+messageacrypter+"\"");
+			System.out.println("Debut du cryptage type "+choixcryptage+" en utilisant la clef \""+maclef+"\" et le message Ã  crypter \""+messageacrypter+"\"");
 			
 			if(choixcryptage==BOUTTON_AES)
 			{
@@ -752,11 +752,11 @@ Fenetre(String titre){
 					b = messageacrypter.getBytes();		//Chaine a chiffrer sous forme de byte
 					b = aes.chiffrerMess(b);			//Chiffrement du message
 					String messagecrypte5 = new String(b);
-					System.out.println("Fin du cryptage.\nLe message crypté est :\n"+messagecrypte5);	
+					System.out.println("Fin du cryptage.\nLe message cryptÃ© est :\n"+messagecrypte5);	
 					texte_message_crypte.setText(messagecrypte5);
 				}
 				else {
-					JOptionPane.showMessageDialog(null,"Le cryptage est de type AES 128 bits.\nVotre clef de cryptage doit donc contenir 16 caractères ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);      
+					JOptionPane.showMessageDialog(null,"Le cryptage est de type AES 128 bits.\nVotre clef de cryptage doit donc contenir 16 caractÃ¨res ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);      
 
 				}
 			} else if(choixcryptage==BOUTTON_CESAR_AMELIORE){
@@ -767,7 +767,7 @@ Fenetre(String titre){
 					texte_message_crypte.setText(messagechiffe3);
 				}
 				catch(NumberFormatException f){
-					 JOptionPane.showMessageDialog(null,"Le cryptage est de type César amélioré.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 224." , AIDE, JOptionPane.ERROR_MESSAGE);      
+					 JOptionPane.showMessageDialog(null,"Le cryptage est de type CÃ©sar amÃ©liorÃ©.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 224." , AIDE, JOptionPane.ERROR_MESSAGE);      
 	
 				}
 				
@@ -780,7 +780,7 @@ Fenetre(String titre){
 				texte_message_crypte.setText(messagechiffe4);
 			}
 			catch(NumberFormatException f){
-				 JOptionPane.showMessageDialog(null,"Le cryptage est de type César classique.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 26." , AIDE, JOptionPane.ERROR_MESSAGE);   
+				 JOptionPane.showMessageDialog(null,"Le cryptage est de type CÃ©sar classique.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 26." , AIDE, JOptionPane.ERROR_MESSAGE);   
 			}
 		}else if(choixcryptage==BOUTTON_DES){
 			if(maclef.length()==7){
@@ -794,7 +794,7 @@ Fenetre(String titre){
 				}				
 			}
 			else{
-				 JOptionPane.showMessageDialog(null,"Le cryptage est de type DES 56 bits.\nVotre clef de cryptage doit donc contenir 7 caractères ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);   
+				 JOptionPane.showMessageDialog(null,"Le cryptage est de type DES 56 bits.\nVotre clef de cryptage doit donc contenir 7 caractÃ¨res ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);   
 			}
 		}else if(choixcryptage==BOUTTON_VIGENERE){
 			texte_message_crypte.setText(new Vigenere(messageacrypter).chiffrer(maclef));
@@ -809,8 +809,8 @@ Fenetre(String titre){
 			if(choixcryptage==BOUTTON_CESAR_CLASSIQUE){
 				Attaque_cesar_classique attaqueclef= new Attaque_cesar_classique(texte_message_crypte.getText(),"Francais");
 				Cesar_classique cesar = new Cesar_classique(texte_message_crypte.getText());
-				if((texte_message_crypte.getText()).length()>25) JOptionPane.showMessageDialog(null,"Clef la plus probable : "+attaqueclef.cleflaplusprobable+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable).substring(0,25)+"\n\n2ème clef la plus probable : "+attaqueclef.deuxiemecleflaplusprobable+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable).substring(0,25)+"\n\n3ème clef la plus probable : "+attaqueclef.troisiemecleflaplusprobable+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.troisiemecleflaplusprobable).substring(0,25)+"\nForce brute :\nClef = 0 : "+cesar.dechiffrer(0).substring(0,25)+"\nClef = 1 : "+cesar.dechiffrer(1).substring(0,25)+"\nClef = 2 : "+cesar.dechiffrer(2).substring(0,25)+"\nClef = 3 : "+cesar.dechiffrer(3).substring(0,25)+"\nClef = 4 : "+cesar.dechiffrer(4).substring(0,25)+"\nClef = 5 : "+cesar.dechiffrer(5).substring(0,25)+"\nClef = 6 : "+cesar.dechiffrer(6).substring(0,25)+"\nClef = 7 : "+cesar.dechiffrer(7).substring(0,25)+"\nClef = 8 : "+cesar.dechiffrer(8).substring(0,25)+"\nClef = 9 : "+cesar.dechiffrer(9).substring(0,25)+"\nClef = 10 : "+cesar.dechiffrer(10).substring(0,25)+"\nClef = 11 : "+cesar.dechiffrer(11).substring(0,25)+"\nClef = 12 : "+cesar.dechiffrer(12).substring(0,25)+"\nClef = 13 : "+cesar.dechiffrer(13).substring(0,25)+"\nClef = 14 : "+cesar.dechiffrer(14).substring(0,25)+"\nClef = 15 : "+cesar.dechiffrer(15).substring(0,25)+"\nClef = 16 : "+cesar.dechiffrer(16).substring(0,25)+"\nClef = 17 : "+cesar.dechiffrer(17).substring(0,25)+"\nClef = 18 : "+cesar.dechiffrer(18).substring(0,25)+"\nClef = 19 : "+cesar.dechiffrer(19).substring(0,25)+"\nClef = 20 : "+cesar.dechiffrer(20).substring(0,25)+"\nClef = 21 : "+cesar.dechiffrer(21).substring(0,25)+"\nClef = 22 : "+cesar.dechiffrer(22).substring(0,25)+"\nClef = 23 : "+cesar.dechiffrer(23).substring(0,25)+"\nClef = 24 : "+cesar.dechiffrer(24).substring(0,25)+"\nClef = 25 : "+cesar.dechiffrer(25).substring(0,25)+"", "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
-				else JOptionPane.showMessageDialog(null,"Votre message est bien trop court pour une analyse fréquentielle.\n\n"+"Brute force :"+"\nClef = 0 : "+cesar.dechiffrer(0).substring(0,texte_message_crypte.getText().length())+"\nClef = 1 : "+cesar.dechiffrer(1).substring(0,texte_message_crypte.getText().length())+"\nClef = 2 : "+cesar.dechiffrer(2).substring(0,texte_message_crypte.getText().length())+"\nClef = 3 : "+cesar.dechiffrer(3).substring(0,texte_message_crypte.getText().length())+"\nClef = 4 : "+cesar.dechiffrer(4).substring(0,texte_message_crypte.getText().length())+"\nClef = 5 : "+cesar.dechiffrer(5).substring(0,texte_message_crypte.getText().length())+"\nClef = 6 : "+cesar.dechiffrer(6).substring(0,texte_message_crypte.getText().length())+"\nClef = 7 : "+cesar.dechiffrer(7).substring(0,texte_message_crypte.getText().length())+"\nClef = 8 : "+cesar.dechiffrer(8).substring(0,texte_message_crypte.getText().length())+"\nClef = 9 : "+cesar.dechiffrer(9).substring(0,texte_message_crypte.getText().length())+"\nClef = 10 : "+cesar.dechiffrer(10).substring(0,texte_message_crypte.getText().length())+"\nClef = 11 : "+cesar.dechiffrer(11).substring(0,texte_message_crypte.getText().length())+"\nClef = 12 : "+cesar.dechiffrer(12).substring(0,texte_message_crypte.getText().length())+"\nClef = 13 : "+cesar.dechiffrer(13).substring(0,texte_message_crypte.getText().length())+"\nClef = 14 : "+cesar.dechiffrer(14).substring(0,texte_message_crypte.getText().length())+"\nClef = 15 : "+cesar.dechiffrer(15).substring(0,texte_message_crypte.getText().length())+"\nClef = 16 : "+cesar.dechiffrer(16).substring(0,texte_message_crypte.getText().length())+"\nClef = 17 : "+cesar.dechiffrer(17).substring(0,texte_message_crypte.getText().length())+"\nClef = 18 : "+cesar.dechiffrer(18).substring(0,texte_message_crypte.getText().length())+"\nClef = 19 : "+cesar.dechiffrer(19).substring(0,texte_message_crypte.getText().length())+"\nClef = 20 : "+cesar.dechiffrer(20).substring(0,texte_message_crypte.getText().length())+"\nClef = 21 : "+cesar.dechiffrer(21).substring(0,texte_message_crypte.getText().length())+"\nClef = 22 : "+cesar.dechiffrer(22).substring(0,texte_message_crypte.getText().length())+"\nClef = 23 : "+cesar.dechiffrer(23).substring(0,texte_message_crypte.getText().length())+"\nClef = 24 : "+cesar.dechiffrer(24).substring(0,texte_message_crypte.getText().length())+"\nClef = 25 : "+cesar.dechiffrer(25).substring(0,texte_message_crypte.getText().length()), "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);
+				if((texte_message_crypte.getText()).length()>25) JOptionPane.showMessageDialog(null,"Clef la plus probable : "+attaqueclef.cleflaplusprobable+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable).substring(0,25)+"\n\n2Ã¨me clef la plus probable : "+attaqueclef.deuxiemecleflaplusprobable+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable).substring(0,25)+"\n\n3Ã¨me clef la plus probable : "+attaqueclef.troisiemecleflaplusprobable+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.troisiemecleflaplusprobable).substring(0,25)+"\nForce brute :\nClef = 0 : "+cesar.dechiffrer(0).substring(0,25)+"\nClef = 1 : "+cesar.dechiffrer(1).substring(0,25)+"\nClef = 2 : "+cesar.dechiffrer(2).substring(0,25)+"\nClef = 3 : "+cesar.dechiffrer(3).substring(0,25)+"\nClef = 4 : "+cesar.dechiffrer(4).substring(0,25)+"\nClef = 5 : "+cesar.dechiffrer(5).substring(0,25)+"\nClef = 6 : "+cesar.dechiffrer(6).substring(0,25)+"\nClef = 7 : "+cesar.dechiffrer(7).substring(0,25)+"\nClef = 8 : "+cesar.dechiffrer(8).substring(0,25)+"\nClef = 9 : "+cesar.dechiffrer(9).substring(0,25)+"\nClef = 10 : "+cesar.dechiffrer(10).substring(0,25)+"\nClef = 11 : "+cesar.dechiffrer(11).substring(0,25)+"\nClef = 12 : "+cesar.dechiffrer(12).substring(0,25)+"\nClef = 13 : "+cesar.dechiffrer(13).substring(0,25)+"\nClef = 14 : "+cesar.dechiffrer(14).substring(0,25)+"\nClef = 15 : "+cesar.dechiffrer(15).substring(0,25)+"\nClef = 16 : "+cesar.dechiffrer(16).substring(0,25)+"\nClef = 17 : "+cesar.dechiffrer(17).substring(0,25)+"\nClef = 18 : "+cesar.dechiffrer(18).substring(0,25)+"\nClef = 19 : "+cesar.dechiffrer(19).substring(0,25)+"\nClef = 20 : "+cesar.dechiffrer(20).substring(0,25)+"\nClef = 21 : "+cesar.dechiffrer(21).substring(0,25)+"\nClef = 22 : "+cesar.dechiffrer(22).substring(0,25)+"\nClef = 23 : "+cesar.dechiffrer(23).substring(0,25)+"\nClef = 24 : "+cesar.dechiffrer(24).substring(0,25)+"\nClef = 25 : "+cesar.dechiffrer(25).substring(0,25)+"", "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
+				else JOptionPane.showMessageDialog(null,"Votre message est bien trop court pour une analyse frÃ©quentielle.\n\n"+"Brute force :"+"\nClef = 0 : "+cesar.dechiffrer(0).substring(0,texte_message_crypte.getText().length())+"\nClef = 1 : "+cesar.dechiffrer(1).substring(0,texte_message_crypte.getText().length())+"\nClef = 2 : "+cesar.dechiffrer(2).substring(0,texte_message_crypte.getText().length())+"\nClef = 3 : "+cesar.dechiffrer(3).substring(0,texte_message_crypte.getText().length())+"\nClef = 4 : "+cesar.dechiffrer(4).substring(0,texte_message_crypte.getText().length())+"\nClef = 5 : "+cesar.dechiffrer(5).substring(0,texte_message_crypte.getText().length())+"\nClef = 6 : "+cesar.dechiffrer(6).substring(0,texte_message_crypte.getText().length())+"\nClef = 7 : "+cesar.dechiffrer(7).substring(0,texte_message_crypte.getText().length())+"\nClef = 8 : "+cesar.dechiffrer(8).substring(0,texte_message_crypte.getText().length())+"\nClef = 9 : "+cesar.dechiffrer(9).substring(0,texte_message_crypte.getText().length())+"\nClef = 10 : "+cesar.dechiffrer(10).substring(0,texte_message_crypte.getText().length())+"\nClef = 11 : "+cesar.dechiffrer(11).substring(0,texte_message_crypte.getText().length())+"\nClef = 12 : "+cesar.dechiffrer(12).substring(0,texte_message_crypte.getText().length())+"\nClef = 13 : "+cesar.dechiffrer(13).substring(0,texte_message_crypte.getText().length())+"\nClef = 14 : "+cesar.dechiffrer(14).substring(0,texte_message_crypte.getText().length())+"\nClef = 15 : "+cesar.dechiffrer(15).substring(0,texte_message_crypte.getText().length())+"\nClef = 16 : "+cesar.dechiffrer(16).substring(0,texte_message_crypte.getText().length())+"\nClef = 17 : "+cesar.dechiffrer(17).substring(0,texte_message_crypte.getText().length())+"\nClef = 18 : "+cesar.dechiffrer(18).substring(0,texte_message_crypte.getText().length())+"\nClef = 19 : "+cesar.dechiffrer(19).substring(0,texte_message_crypte.getText().length())+"\nClef = 20 : "+cesar.dechiffrer(20).substring(0,texte_message_crypte.getText().length())+"\nClef = 21 : "+cesar.dechiffrer(21).substring(0,texte_message_crypte.getText().length())+"\nClef = 22 : "+cesar.dechiffrer(22).substring(0,texte_message_crypte.getText().length())+"\nClef = 23 : "+cesar.dechiffrer(23).substring(0,texte_message_crypte.getText().length())+"\nClef = 24 : "+cesar.dechiffrer(24).substring(0,texte_message_crypte.getText().length())+"\nClef = 25 : "+cesar.dechiffrer(25).substring(0,texte_message_crypte.getText().length()), "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			else if(choixcryptage==BOUTTON_CESAR_AMELIORE){
@@ -826,37 +826,37 @@ Fenetre(String titre){
 						j=0;
 					}else j++;
 				}
-				if((texte_message_crypte.getText()).length()>25) JOptionPane.showMessageDialog(null,"Clef la plus probable : "+attaqueclef.cleflaplusprobable+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable).substring(0,25)+"\n\n2ème clef la plus probable : "+attaqueclef.deuxiemecleflaplusprobable+"\nTexte déchiffré associé : : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable).substring(0,25)+"\n\n3ème clef la plus probable : "+(attaqueclef.cleflaplusprobable-32)+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable-32).substring(0,25)+"\n\n4ème clef la plus probable : "+(attaqueclef.deuxiemecleflaplusprobable-32)+"\nTexte déchiffré associé : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable-32).substring(0,25)+"\n\nForce brute :\n"+sb, "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
-				else JOptionPane.showMessageDialog(null,"Votre message est bien trop court pour une analyse fréquentielle.\n\nForce brute :\n"+sb, "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);				
+				if((texte_message_crypte.getText()).length()>25) JOptionPane.showMessageDialog(null,"Clef la plus probable : "+attaqueclef.cleflaplusprobable+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable).substring(0,25)+"\n\n2Ã¨me clef la plus probable : "+attaqueclef.deuxiemecleflaplusprobable+"\nTexte dÃ©chiffrÃ© associÃ© : : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable).substring(0,25)+"\n\n3Ã¨me clef la plus probable : "+(attaqueclef.cleflaplusprobable-32)+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.cleflaplusprobable-32).substring(0,25)+"\n\n4Ã¨me clef la plus probable : "+(attaqueclef.deuxiemecleflaplusprobable-32)+"\nTexte dÃ©chiffrÃ© associÃ© : "+cesar.dechiffrer(attaqueclef.deuxiemecleflaplusprobable-32).substring(0,25)+"\n\nForce brute :\n"+sb, "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
+				else JOptionPane.showMessageDialog(null,"Votre message est bien trop court pour une analyse frÃ©quentielle.\n\nForce brute :\n"+sb, "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);				
 			}
 			
 			else if(choixcryptage==BOUTTON_VIGENERE){
 				Attaque_vigenere attaqueclef= new Attaque_vigenere(texte_message_crypte.getText());
 
-				if((texte_message_crypte.getText()).length()>100) JOptionPane.showMessageDialog(null,"Taille de la clef : "+attaqueclef.tailleclef+"\nLa fonction de cryptanalyse n'est pas terminé et ne permet donc pas de retrouver le message complet","Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
-				else JOptionPane.showMessageDialog(null,"Votre message crypté est bien trop court pour une analyse Kasiski (il faut au minimum 100 caractères)", "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);				
+				if((texte_message_crypte.getText()).length()>100) JOptionPane.showMessageDialog(null,"Taille de la clef : "+attaqueclef.tailleclef+"\nLa fonction de cryptanalyse n'est pas terminÃ© et ne permet donc pas de retrouver le message complet","Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);   
+				else JOptionPane.showMessageDialog(null,"Votre message cryptÃ© est bien trop court pour une analyse Kasiski (il faut au minimum 100 caractÃ¨res)", "Recherche de la clef de cryptage", JOptionPane.INFORMATION_MESSAGE);				
 			}		
 			
 			else if(choixcryptage==BOUTTON_VIGENERE_AMELIORE){
-				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore été codé","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
+				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore Ã©tÃ© codÃ©","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
 			}
 			
 			else if(choixcryptage==BOUTTON_DES){
-				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore été codé","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
+				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore Ã©tÃ© codÃ©","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
 			}
 			
 			else if(choixcryptage==BOUTTON_AES){
-				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore été codé","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
+				 JOptionPane.showMessageDialog(null,"Cete fonction n'a pas encore Ã©tÃ© codÃ©","Recherche de la clef de cryptage",JOptionPane.INFORMATION_MESSAGE);	
 			}
 			
 			
 		}
 		
 		if(cmd.equals(BOUTTON_LANCER_DECRYPTAGE)){
-			System.out.println("Debut du décryptage "+choixcryptage);
+			System.out.println("Debut du dÃ©cryptage "+choixcryptage);
 			String messageadecrypter = texte_message_crypte.getText();
 			String maclef2 = texte_clef.getText();
-			System.out.println("Debut du décryptage type "+choixcryptage+" en utilisant la clef \""+maclef2+"\" et le message crypté \""+messageadecrypter+"\"");
+			System.out.println("Debut du dÃ©cryptage type "+choixcryptage+" en utilisant la clef \""+maclef2+"\" et le message cryptÃ© \""+messageadecrypter+"\"");
 							
 			if(choixcryptage==BOUTTON_AES)
 			{
@@ -866,34 +866,34 @@ Fenetre(String titre){
 					aes2 = new AES(maclef2.getBytes());		//Construction de l'objet AES
 					b2 = messageadecrypter.getBytes();
 					String messagedechiffe5;
-					messagedechiffe5 = new String(aes2.dechiffrerMess(b2));//Déchiffrement du message chiffré
+					messagedechiffe5 = new String(aes2.dechiffrerMess(b2));//DÃ©chiffrement du message chiffrÃ©
 					texte_message_decrypte.setText(messagedechiffe5);
-					System.out.println("Message déchiffré :\n"+messagedechiffe5);				
+					System.out.println("Message dÃ©chiffrÃ© :\n"+messagedechiffe5);				
 				}
 				else {
-					 JOptionPane.showMessageDialog(null,"Le cryptage est de type AES 128 bits.\nVotre clef de cryptage doit donc contenir au minimum 16 caractères." , AIDE, JOptionPane.ERROR_MESSAGE);      
+					 JOptionPane.showMessageDialog(null,"Le cryptage est de type AES 128 bits.\nVotre clef de cryptage doit donc contenir au minimum 16 caractÃ¨res." , AIDE, JOptionPane.ERROR_MESSAGE);      
 				}
 			}else if(choixcryptage==BOUTTON_CESAR_AMELIORE){
 				try{
 					int maclefcesar2 = Integer.parseInt(maclef2);
 					Cesar_complet cesar4 = new Cesar_complet(messageadecrypter);
 					String messageadecrypter7=cesar4.dechiffrer(maclefcesar2);
-					System.out.println("Message déchiffré :  "+messageadecrypter7+"\n");
+					System.out.println("Message dÃ©chiffrÃ© :  "+messageadecrypter7+"\n");
 					texte_message_decrypte.setText(messageadecrypter7);
 				}
 				catch(NumberFormatException f){
-					JOptionPane.showMessageDialog(null,"Le cryptage est de type César amélioré.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 224." , AIDE, JOptionPane.ERROR_MESSAGE);      
+					JOptionPane.showMessageDialog(null,"Le cryptage est de type CÃ©sar amÃ©liorÃ©.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 224." , AIDE, JOptionPane.ERROR_MESSAGE);      
 				}
 			}else if(choixcryptage==BOUTTON_CESAR_CLASSIQUE){
 				try{
 					int maclefcesar9 = Integer.parseInt(maclef2);
 					Cesar_classique cesar9 = new Cesar_classique(messageadecrypter);
 					String messageadecrypter9=cesar9.dechiffrer(maclefcesar9);
-					System.out.println("Message déchiffré :  "+messageadecrypter9+"\n");
+					System.out.println("Message dÃ©chiffrÃ© :  "+messageadecrypter9+"\n");
 					texte_message_decrypte.setText(messageadecrypter9);
 				}
 				catch(NumberFormatException f){
-					JOptionPane.showMessageDialog(null,"Le cryptage est de type César classique.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 26." , AIDE, JOptionPane.ERROR_MESSAGE);      
+					JOptionPane.showMessageDialog(null,"Le cryptage est de type CÃ©sar classique.\nVotre clef de cryptage doit donc contenir uniquement un entier compris entre 0 et 26." , AIDE, JOptionPane.ERROR_MESSAGE);      
 				}
 				
 				
@@ -907,12 +907,12 @@ Fenetre(String titre){
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null,"Impossible de décrypter.\nErreur inconnu\nAvez vous bien mis le bon message crypté ?." , AIDE, JOptionPane.ERROR_MESSAGE);   
+						JOptionPane.showMessageDialog(null,"Impossible de dÃ©crypter.\nErreur inconnu\nAvez vous bien mis le bon message cryptÃ© ?." , AIDE, JOptionPane.ERROR_MESSAGE);   
 
 					}				
 				}
 				else{
-					JOptionPane.showMessageDialog(null,"Le cryptage est de type DES 56 bits.\nVotre clef de cryptage doit donc contenir 7 caractères ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);   
+					JOptionPane.showMessageDialog(null,"Le cryptage est de type DES 56 bits.\nVotre clef de cryptage doit donc contenir 7 caractÃ¨res ASCII." , AIDE, JOptionPane.ERROR_MESSAGE);   
 				}
 			}else if(choixcryptage==BOUTTON_VIGENERE){
 				
@@ -931,35 +931,35 @@ Fenetre(String titre){
 
 			
 
-//Les méthodes de la souris :
+//Les mÃ©thodes de la souris :
 
 	public void mouseMoved(MouseEvent e){
-		//System.out.println("j'ai bougé\n");
+		//System.out.println("j'ai bougÃ©\n");
 	}
 
 	public void mouseClicked(MouseEvent e){
 		/*texte_message_decrypte texte_message_crypte texte_clef*/
 		
-		System.out.println("j'ai appuyé\n");
+		System.out.println("j'ai appuyÃ©\n");
 	}
 	
 	public void mouseReleased(MouseEvent e){
-		//System.out.println("j'ai relaché\n");
+		//System.out.println("j'ai relachÃ©\n");
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-		//System.out.println("Je suis allé sur un élément\n");
+		//System.out.println("Je suis allÃ© sur un Ã©lÃ©ment\n");
 	}
 
 	public void mouseExited(MouseEvent e) {
-		//System.out.println("Je suis parti d'un élément\n");
+		//System.out.println("Je suis parti d'un Ã©lÃ©ment\n");
 	}
 
 	public void mouseDragged(MouseEvent e) {
-		//System.out.println("J'ai appuyé et bougé\n");
+		//System.out.println("J'ai appuyÃ© et bougÃ©\n");
 	}	
 	public void mousePressed(MouseEvent e){	
-		//System.out.println("J'ai appuyé et je le suis encore \n");		
+		//System.out.println("J'ai appuyÃ© et je le suis encore \n");		
 	}
 	
 	}  

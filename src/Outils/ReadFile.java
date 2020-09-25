@@ -7,7 +7,7 @@ public class ReadFile {
 	public String chaine;
 	/**
 	 *  Ouvrir un fichier contenant un String
-	 * 	ReadFile monfichier =new ReadFile("monfichier.txt"); // Creation de l'instance qui recupère ce qu'il y a dans le fichier
+	 * 	ReadFile monfichier =new ReadFile("monfichier.txt"); // Creation de l'instance qui recupÃ¨re ce qu'il y a dans le fichier
 	 *  System.out.println(monfichier.chaine); // Ce qui se trouve dans le fichier se trouve dans "monfichier.chaine"
 	 */
 	public ReadFile(String fichier){
