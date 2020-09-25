@@ -5,3 +5,8 @@ jdk:
 script:
   # Build the application
   - javac -d bin -cp lib/itextpdf.jar src/chiffrement/* src/modeleAES/* src/modeleDES/* src/Outils/* src/Fenetre.java src/Principale.java
+  # Deploy the application
+  - cp img/*.png bin/
+  - cp lib/*.jar bin/
+  - cd bin/
+  - jar cvfm ../Safe-For-All.jar ../manifest.txt chiffrement/*.class modeleAES/*.class modeleDES/*.class Outils/*.class *.class *.png *.jar com/*
