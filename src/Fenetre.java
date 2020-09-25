@@ -559,7 +559,7 @@ Fenetre(String titre){
 				      document.add(new Paragraph("\n\n\nL'application \"Safe for all v1.0\" créée par Quentin Comte-Gaz se trouve à l'adresse :"));
 				      com.itextpdf.text.Font blueFont = new com.itextpdf.text.Font();
 				      blueFont.setColor(0,0,0xFF);
-				      document.add(new Chunk("http://quentincg.free.fr/safeforall/", blueFont).setAnchor("http://quentincg.free.fr/safeforall/"));
+				      document.add(new Chunk("https://github.com/QuentinCG/Safe-For-All", blueFont).setAnchor("https://github.com/QuentinCG/Safe-For-All"));
 				     
 				      document.close(); 
 				      JOptionPane.showMessageDialog(null,"Votre fichier PDF a bien été exporté à l'adresse "+chemin_fichier_enregistrer+".pdf", "Fichier PDF exporté", JOptionPane.INFORMATION_MESSAGE);  
@@ -601,8 +601,8 @@ Fenetre(String titre){
 		
 		else if(cmd.equals(APROPOS) || cmd.equals(AIDE)){
 			ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource(LOGO_IMG)));
-			if(cmd.equals(APROPOS)) JOptionPane.showMessageDialog(null,"<html>Logiciel : Safe for all<br />Version : 1.0<br />© Tous droits réservés 2012-2013<br /><br />Auteur : Quentin Comte-Gaz<br />Contact : Quentincg@free.fr<br />Site de l'éditeur : http://quentincg.free.fr/</html>" , APROPOS, JOptionPane.INFORMATION_MESSAGE, img);      
-			else JOptionPane.showMessageDialog(null,"Aide complète en ligne à l'adresse :\nhttp://quentincg.free.fr/safeforall/" , AIDE, JOptionPane.INFORMATION_MESSAGE, img);      
+			if(cmd.equals(APROPOS)) JOptionPane.showMessageDialog(null,"<html>Logiciel : Safe for all<br />Version : 1.0<br />© Tous droits réservés 2012-2013<br /><br />Auteur : Quentin Comte-Gaz<br />Site de l'éditeur : https://quentin.comte-gaz.com</html>" , APROPOS, JOptionPane.INFORMATION_MESSAGE, img);      
+			else JOptionPane.showMessageDialog(null,"Aide complète en ligne à l'adresse :\nhttps://github.com/QuentinCG/Safe-For-All" , AIDE, JOptionPane.INFORMATION_MESSAGE, img);      
 	
 		}
 		else if(cmd.equals(NOUVEAU)){
