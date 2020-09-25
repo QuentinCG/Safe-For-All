@@ -16,8 +16,11 @@ You can also export/import encrypted/decrypted files and keys for future use or 
 
 ## How to install
 
-Download the application <a href="https://github.com/QuentinCG/Safe-For-All/releases/download/1-0-0/Safe-For-All-1-0-0.jar">here</a>
-The application can be launched.
+1) Be sure Java is installed in your computer (else download it <a href="https://www.java.com/fr/download/">here</a>)
+
+2) Download the application <a href="https://github.com/QuentinCG/Safe-For-All/releases/download/1-0-0/Safe-For-All-1-0-0.jar">here</a>
+
+3) Launch the application
 
 
 
