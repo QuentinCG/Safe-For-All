@@ -2,19 +2,19 @@ package modeleAES;
 
 
 public class AES {
-	
-	
+
+
 	final int Nb = 4;	//Nombre de colonne (toujours 4 pour AES)
-	final int Nk = 4;	//Nombre de mot dans la clé (un mot = 4 octet) (4 pour AES-128)
+	final int Nk = 4;	//Nombre de mot dans la clÃ© (un mot = 4 octet) (4 pour AES-128)
 	final int Nr = 10;	//Nombre de tour de ronde (10 pour AES-128)
-	
+
 	int key[];
 	int expandKey[];
 
-	AESWord128 rCon[];	
-	
+	AESWord128 rCon[];
+
 	//La boite-S pour l'operation SubBytes
-	private int sBox[] = { 
+	private int sBox[] = {
 	    0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE,
 	    0xD7, 0xAB, 0x76, 0xCA, 0x82, 0xC9, 0x7D, 0xFA, 0x59, 0x47, 0xF0, 0xAD, 0xD4,
 	    0xA2, 0xAF, 0x9C, 0xA4, 0x72, 0xC0, 0xB7, 0xFD, 0x93, 0x26, 0x36, 0x3F, 0xF7,
@@ -36,8 +36,8 @@ public class AES {
 	    0x87, 0xE9, 0xCE, 0x55, 0x28, 0xDF, 0x8C, 0xA1, 0x89, 0x0D, 0xBF, 0xE6, 0x42,
 	    0x68, 0x41, 0x99, 0x2D, 0x0F, 0xB0, 0x54, 0xBB, 0x16
 	};
-	
-	
+
+
 	// la boite-S pour l'operation InvSubBytes
 	private int invSBox[] = {
 	    0x52, 0x09, 0x6A, 0xD5, 0x30, 0x36, 0xA5, 0x38, 0xBF, 0x40, 0xA3, 0x9E, 0x81,
@@ -65,7 +65,7 @@ public class AES {
 /****************************************************************************************************************
  * Constructeur
  ****************************************************************************************************************/
-	
+
 	/**
 	 * Constructeur d'objet AES : cle, cle etendu, generation de rCon, sBox, invSBox
 	 * @param cle       la cle de chiffrement
@@ -73,50 +73,50 @@ public class AES {
 	public AES(String cle){
 		key = new int[Nk * 4];
 		expandKey = new int[4 * Nk * (Nr +1)];
-		
-		//Decoupage de la clé format texte en format integer
+
+		//Decoupage de la clÃ© format texte en format integer
 		for (int i=0;i< (Nk * 4);i++){
 			key[i] = Integer.valueOf(cle.substring(i,i+1));
 		}
-		
+
 		//Generation de rCon
 		rCon = new AESWord128[16];
 		genRCon();
-		//Generation des clés étendus
+		//Generation des clÃ©s Ã©tendus
 		expandKey = keyExpansion(key);
-		
+
 	}
-	
+
 	public AES(byte cle[]){
 		key = new int[Nk * 4];
 		expandKey = new int[4 * Nk * (Nr +1)];
-		
-		//Decoupage de la clé format texte en format integer
+
+		//Decoupage de la clÃ© format texte en format integer
 		for (int i=0;i< (Nk * 4);i++){
 			key[i] = cle[i] + 128;
 		}
-		
+
 		//Generation de rCon
 		rCon = new AESWord128[16];
 		genRCon();
-		//Generation des clés étendus
+		//Generation des clÃ©s Ã©tendus
 		expandKey = keyExpansion(key);
 	}
-	
+
 /****************************************************************************************************************
- * Procédure de chiffrement
+ * ProcÃ©dure de chiffrement
  ****************************************************************************************************************/
-	
+
 	/**
 	 * Permet de chiffrer une suite de bytes
 	 */
 	public byte[] chiffrerMess(byte mess[]){
 		int tmpbloc[][]= new int[4][4];
 		int i = 0, j = 0;
-		byte size[] = new byte[4];		
+		byte size[] = new byte[4];
 		byte res[] = new byte[((mess.length/16)*16)+32];
-		
-		//J'ai choisi d'ajouter un bloc contenant la taille du message d'origine car 
+
+		//J'ai choisi d'ajouter un bloc contenant la taille du message d'origine car
 		//une fois chiffrer le message est de taille multiple a 16 donc il faudra la taille d'origine
 		//pour dechiffrer
 		size = intToBytes(mess.length);
@@ -126,13 +126,13 @@ public class AES {
 		tmpbloc[0][3] = size[3] + 128;
 		for(i =4;i<16;i++)
 			tmpbloc[i/4][i%4] = 0;
-		
+
 		tmpbloc = chiffrerBloc(tmpbloc);
 		i=0;
 		addTab(res,tmpbloc,i);
-		
+
 		while (i<mess.length) {
-			//Creation du bloc de 16bytes à chiffrer
+			//Creation du bloc de 16bytes Ã  chiffrer
 			if (i+16<=mess.length){
 				for (j=0; j<16;j++){
 					tmpbloc[j/4][j%4] = mess[i+j] + 128;
@@ -147,59 +147,59 @@ public class AES {
 					tmpbloc[j/4][j%4] = 0;
 			}
 
-			//Chiffrement des données
+			//Chiffrement des donnÃ©es
 			tmpbloc = chiffrerBloc(tmpbloc);
-			
-			//Ajout des données au tableau de resultat
+
+			//Ajout des donnÃ©es au tableau de resultat
 			addTab(res,tmpbloc,i+16);
-			
+
 			i+=16;
 		}
-		
+
 		return res;
 	}
-	
+
 	/**
-	 * Permet de dechiffrer une suite de bytes 
+	 * Permet de dechiffrer une suite de bytes
 	 */
 	public byte[] dechiffrerMess(byte mess[]){
-		
+
 		byte tmpsize[] = new byte[4];
 		int size = 0, pos = 0;
 		int tmpbloc[][] = new int[4][4];
-		
+
 		for (int i=0;i<16;i++)
 			tmpbloc[i/4][i%4] = mess[i] + 128;
 		tmpbloc = dechiffrerBloc(tmpbloc);
-		
+
 		tmpsize[0] = (byte)(tmpbloc[0][0] - 128);
 		tmpsize[1] = (byte)(tmpbloc[0][1] - 128);
 		tmpsize[2] = (byte)(tmpbloc[0][2] - 128);
 		tmpsize[3] = (byte)(tmpbloc[0][3] - 128);
 		size = bytesToInt(tmpsize);
-		
+
 		byte res[] = new byte[size];
 		int i = 16;
 		while (i<mess.length){
 			for (int j=0;j<16;j++)
 				tmpbloc[j/4][j%4] = mess[i+j] + 128;
-			
+
 			tmpbloc = dechiffrerBloc(tmpbloc);
 			addTab(res,tmpbloc,pos);
 			pos+=16;
 			i += 16;
 		}
-		
+
 		return res;
 	}
-	
+
 	/**
-	 * Chiffre un bloc 16 bytes rangés dans un tableau [4][4]
+	 * Chiffre un bloc 16 bytes rangÃ©s dans un tableau [4][4]
 	 */
 	private int[][] chiffrerBloc(int matrice[][]){
-		
+
 		matrice = addRoundKey(matrice, getRoundKey(0));
-		
+
 		//Ronde AES
 		for (int i=1; i<Nr;i++){
 			matrice = subBytes(matrice);
@@ -212,13 +212,13 @@ public class AES {
 		matrice = addRoundKey(matrice, getRoundKey(Nr));
 		return matrice;
 	}
-	
+
 	/**
-	 * Dechiffre un bloc 
+	 * Dechiffre un bloc
 	 */
 	private int[][] dechiffrerBloc(int matrice[][]){
 		matrice = addRoundKey(matrice, getRoundKey(Nr));
-		
+
 		//Ronde AES
 		for (int i=Nr-1; i>0; i--){
 			matrice = invShiftRows(matrice);
@@ -233,11 +233,11 @@ public class AES {
 	}
 
 /****************************************************************************************************************
- * Construction des clés de rondes
+ * Construction des clÃ©s de rondes
  ****************************************************************************************************************/
-	
+
 	/**
-	 * Applique un XOR sur chaque element de in par key 
+	 * Applique un XOR sur chaque element de in par key
 	 * @param in	tableau 4x4 a traiter
 	 * @param key	cle de cryptage
 	 * @return		retourne un tableau 4x4
@@ -246,50 +246,50 @@ public class AES {
 	{
 		int out[][] = new int[4][4];
 		int k =0, l=0;
-		
+
 		for (int i=0;i< (4*Nk);i++)
 		{
 			k = i/4 % 4;
 			l = i % 4;
-			out[k][l] = in[k][l] ^ key[i]; 
+			out[k][l] = in[k][l] ^ key[i];
 		}
-		
+
 		return out;
 	}
-	
+
 	/**
-	 * Procede à la generation des clés de rondes 
+	 * Procede Ã  la generation des clÃ©s de rondes
 	 */
 	private int[] keyExpansion(int k[])
 	{
 		AESWord128 tmp;
 		AESWord128 w[] = new AESWord128[Nk * (Nr + 1)];
-		
+
 		int t = 0, i = 0;
 		int result[] = new int[4 * Nk * (Nr+1)] ;
-		
+
 		for (i=0; i< Nk; i++)
 		{
 			w[i] = new AESWord128(k[t],k[t+1],k[t+2],k[t+3]);
 			t += 4;
 		}
-		
+
 		for(i=Nk; i < (Nb * (Nr +1)); i++ )
 		{
 			tmp = new AESWord128(w[i-1]);
-			
+
 			if ((i % Nk) == 0){
 				tmp = new AESWord128((subWord(tmp.rotWord())).xor(rCon[i / Nk]));
 			}else if((Nk > 6) && (i % Nk ==4)){
 				tmp = new AESWord128(subWord(tmp));
 			}
-			
+
 			w[i] = new AESWord128(w[i - Nk].xor(tmp));
 		}
-		
+
 		t = 0;
 		i = 0;
-		
+
 		while ( i < (Nk * (Nr+1)))
 		{
 			result[t] = w[i].byte1;
@@ -301,9 +301,9 @@ public class AES {
 		}
 		return result;
 	}
-	
+
 	/**
-	 * Retourne la clé de ronde de la ronde round 
+	 * Retourne la clÃ© de ronde de la ronde round
 	 * @round
 	 */
 	private int[] getRoundKey(int round)
@@ -314,12 +314,12 @@ public class AES {
 			out[t] = expandKey[i];
 			t++;
 		}
-		
+
 		return out;
-		
+
 	}
 	/**
-	 * Application de la sBox a un mot AES de clé de ronde
+	 * Application de la sBox a un mot AES de clÃ© de ronde
 	 * @param w
 	 * @return
 	 */
@@ -330,24 +330,24 @@ public class AES {
 	}
 
 /****************************************************************************************************************
- * Construction des differents tableaux utilisés
+ * Construction des differents tableaux utilisÃ©s
  ****************************************************************************************************************/
 	/**
-	 * Generation du tableau rCon utilisé pour créer les clés de rondes
+	 * Generation du tableau rCon utilisÃ© pour crÃ©er les clÃ©s de rondes
 	 */
 	private void genRCon()
-	{		
+	{
 		rCon[1] = new AESWord128(1,0,0,0);	//2^0
-		
+
 		for (int i=2;i<15;i++){
 			rCon[i] = new AESWord128(gf2Mult(2,rCon[i-1].byte1),0,0,0);
 		}
-	}	
-	
+	}
+
 /****************************************************************************************************************
- * Procédure de chiffrement
+ * ProcÃ©dure de chiffrement
  ****************************************************************************************************************/
-	
+
 	/**
 	 * Operation SubBytes, transforme les octet de in par la S-Box
 	 * @param in	tableau 4x4 representant les donnees sur lesquelles ont dois effectuer une substitution
@@ -356,48 +356,48 @@ public class AES {
 	private int[][] subBytes(int in[][] )
 	{
 		int out[][] = new int[4][4];
-		
+
 		for (int i = 0; i<4;i++){
 			for (int j=0;j<4;j++){
 				out[i][j]= sBox[in[i][j]];
 			}
 		}
-		
+
 		return out;
 	}
-	
+
 	/**
-	 * Applique un decalage a gauche circulaire  
+	 * Applique un decalage a gauche circulaire
 	 * @param in	matrice4x4 de donnees a applique le decalage circulaire e gauche
 	 * @return		retourne un tableau 4x4 sur lequel un decalage cirulaire e etait effectue
 	 */
 	private int[][] shiftRows(int in[][])
 	{
 		int out[][] = new int[4][4];
-		
+
 		for (int i=0;i<4;i++){
 			out[0][i]=in[0][i];
 		}
-		
+
 		out[1][0] = in[1][1];
 		out[1][1] = in[1][2];
 		out[1][2] = in[1][3];
 		out[1][3] = in[1][0];
-		
+
 		out[2][0] = in[2][2];
 		out[2][1] = in[2][3];
 		out[2][2] = in[2][0];
 		out[2][3] = in[2][1];
-		
+
 		out[3][0] = in[3][3];
 		out[3][1] = in[3][0];
 		out[3][2] = in[3][1];
 		out[3][3] = in[3][2];
-		
+
 		return out;
-		
+
 	}
-	
+
 	/**
 	 * Traite les colonnes commes des polynomes de degres n et applique un produit matriciel sur chaque element
 	 * @param in
@@ -407,7 +407,7 @@ public class AES {
 	{
 		int out[][] = new int[4][4];
 		int[] sp = new int[4];
-		
+
 		   for (int c = 0; c < 4; c++) {
 		      sp[0] = (gf2Mult(0x02, in[0][c])) ^ (gf2Mult(0x03, in[1][c])) ^ in[2][c] ^ in[3][c];
 		      sp[1] = in[0][c] ^ (gf2Mult(0x02, in[1][c])) ^ (gf2Mult(0x03, in[2][c])) ^ in[3][c];
@@ -415,12 +415,12 @@ public class AES {
 		      sp[3] = (gf2Mult(0x03, in[0][c])) ^ in[1][c] ^ in[2][c] ^ (gf2Mult(0x02, in[3][c]));
 		      for (int i = 0; i < 4; i++) out[i][c] = sp[i];
 		   }
-		
+
 		return out;
 	}
-	
+
 /****************************************************************************************************************
- * Procédure de déchiffrement
+ * ProcÃ©dure de dÃ©chiffrement
  ****************************************************************************************************************/
 
 	/**
@@ -431,16 +431,16 @@ public class AES {
 	private int[][] invSubBytes(int in[][] )
 	{
 		int out[][] = new int[4][4];
-		
+
 		for (int i = 0; i<4;i++){
 			for (int j=0;j<4;j++){
 				out[i][j]= invSBox[in[i][j]];
 			}
 		}
-		
+
 		return out;
 	}
-		
+
 	/**
 	 * Inverse de ShiftRow, donc decalage a droite
 	 * @param in
@@ -448,29 +448,29 @@ public class AES {
 	 */
 	private int[][] invShiftRows(int in[][]){
 		int out[][] = new int[4][4];
-		
+
 		for (int i=0;i<4;i++){
 			out[0][i]=in[0][i];
 		}
-		
+
 		out[1][1] = in[1][0];
 		out[1][2] = in[1][1];
 		out[1][3] = in[1][2];
 		out[1][0] = in[1][3];
-		
+
 		out[2][2] = in[2][0];
 		out[2][3] = in[2][1];
 		out[2][0] = in[2][2];
 		out[2][1] = in[2][3];
-		
+
 		out[3][3] = in[3][0];
 		out[3][0] = in[3][1];
 		out[3][1] = in[3][2];
 		out[3][2] = in[3][3];
-		
+
 		return out;
-	}	
-	
+	}
+
 	/**
 	 * Inverse de MixColumns
 	 * @param in
@@ -480,7 +480,7 @@ public class AES {
 	{
 		int out[][] = new int[4][4];
 		int[] sp = new int[4];
-		
+
 		   for (int c = 0; c < 4; c++) {
 		      sp[0] = (gf2Mult(0x0e, in[0][c])) ^ (gf2Mult(0x0b, in[1][c])) ^
 		              (gf2Mult(0x0d, in[2][c])) ^ (gf2Mult(0x09, in[3][c]));
@@ -493,10 +493,10 @@ public class AES {
 		      for (int i = 0; i < 4; i++) out[i][c] = sp[i];
 		   }
 
-		
+
 		return out;
 	}
-	
+
 /****************************************************************************************************************
  * Calcul dans GF(2^8)
  ****************************************************************************************************************/
@@ -510,7 +510,7 @@ public class AES {
 			x = (x ^ 0x1B) & 0xff;
 		return x;
 	}
-	
+
 	/**
 	 * Calcul dans GF(2^8) : (ax^7+bx^6+cx^5+dx^4+ex^3+fx^2+gx+ h) * x^y
 	 */
@@ -523,41 +523,41 @@ public class AES {
 		}
 		return x;
 	}
-	
+
 	/**
 	 * Calcul dans GF(2^8) : x * y
 	 */
 	private int gf2Mult(int x, int y){
-		
+
 		int tmpres = 0;
 		int res = 0;
-		
+
 		if ((y>>>7)==1){			//Si le dernier bit est a 1 alors on multiplie par x^7
-			tmpres = x_time(x,7);	
+			tmpres = x_time(x,7);
 			res = tmpres;
 		}
-		
+
 		for(int i=1;i<7;i++){			//On test tous les bits du 6eme au 2eme
 			if ((y<<24+i)>>>31 == 1){
 				tmpres = x_time(x,7-i);
 				res = res ^tmpres;
 			}
 		}
-		
+
 		if ((y<<31)>>>31 == 1)	//Si le premier bit est a 1
 			res = res ^x;		//On Xor le resultat avec x
-		
+
 		return res;
-		
+
 	}
-	
-	
+
+
 /****************************************************************************************************************
- * Opérations sur les matrices
+ * OpÃ©rations sur les matrices
  ****************************************************************************************************************/
-	
+
 	/**
-	 * Ajoute au tableau de byte in le tableau add d'int converit en byte à partir de la position pos
+	 * Ajoute au tableau de byte in le tableau add d'int converit en byte Ã  partir de la position pos
 	 * @param in
 	 * @param add
 	 * @param pos
@@ -570,29 +570,29 @@ public class AES {
 			t++;
 		}
 	}
-	
+
 /****************************************************************************************************************
- * Opérations générales
+ * OpÃ©rations gÃ©nÃ©rales
  ****************************************************************************************************************/
-	
+
 	/**
 	 * Convertit un entier en 4 bytes
 	 */
 	private byte[] intToBytes(int i){
 		byte res[] = new byte[4];
-		res[0] = (byte)((i) >>> 24);  	
-		res[1] = (byte)((i) >>> 16);  	
-		res[2] = (byte)((i) >>> 8); 
+		res[0] = (byte)((i) >>> 24);
+		res[1] = (byte)((i) >>> 16);
+		res[2] = (byte)((i) >>> 8);
 		res[3] = (byte)((i));
 		return res;
 	}
-	
+
 	/**
 	 * Convertit 4 bytes en l'entier correspondant
 	 */
 	private int bytesToInt(byte b[]){
-		return 	(b[0] & 0xFF) << 24 | 
-				(b[1] & 0xFF) << 16 | 	
+		return 	(b[0] & 0xFF) << 24 |
+				(b[1] & 0xFF) << 16 |
 				(b[2] & 0xFF) << 8 |
 				(b[3] & 0xFF);
 	}

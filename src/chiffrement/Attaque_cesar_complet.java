@@ -1,6 +1,6 @@
 package chiffrement;
 /**
- * Marche correctement uniquement si le message cryptÈ est trËs long ...
+ * Marche correctement uniquement si le message crypt√© est tr√®s long ...
  * @author Quecg2
  *
  */
@@ -12,43 +12,43 @@ public class Attaque_cesar_complet {
 	public int cleflaplusprobable;
 	public int deuxiemecleflaplusprobable;
 	public int troisiemecleflaplusprobable;
-	
+
 	public Attaque_cesar_complet(String messagecrypte,String langue){
-		char freq []; // Choix de notre reference de frÈquence pour les lettres
+		char freq []; // Choix de notre reference de fr√©quence pour les lettres
 		if(langue=="Francais" ||langue=="fr" ||langue=="Fr" ||langue=="French" ||langue=="francais") freq = freq_fr;
 		else freq = freq_en;
-		
+
 		// Creation d'un tableau contenant le nombre de fois que chaque lettre apparait
 		int tab []={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		for(int i=0;i<messagecrypte.length();i++){ // On parcours le message
 			for(int j=0;j<224;j++){ // On parcours les lettres pour trouver la bonne
-				if(freq[j]==messagecrypte.charAt(i)) {tab[j]+=1; j=260; /*Pour sortir de la boucle*/} 
+				if(freq[j]==messagecrypte.charAt(i)) {tab[j]+=1; j=260; /*Pour sortir de la boucle*/}
 			}
 		}
 		//for(int j=0;j<26;j++) System.out.print(tab[j]);
-		
-		// Recherche des 3 lettres les + utilisÈes :
+
+		// Recherche des 3 lettres les + utilis√©es :
 		int elementmax1=0,elementmax2=0,elementmax3=0;
-		int max1=0,max2=0,max3=0;		
+		int max1=0,max2=0,max3=0;
 		for(int k=0;k<224;k++) {
-			if(tab[k]>max1){elementmax1=k; max1=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilisÈes, en dÈduire les clefs les + probables et les montrer ‡ l'utilisateur.
+			if(tab[k]>max1){elementmax1=k; max1=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilis√©es, en d√©duire les clefs les + probables et les montrer √† l'utilisateur.
 		}
 		for(int k=0;k<224;k++) {
-			if(tab[k]>max2 && k!=elementmax1){elementmax2=k; max2=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilisÈes, en dÈduire les clefs les + probables et les montrer ‡ l'utilisateur.
+			if(tab[k]>max2 && k!=elementmax1){elementmax2=k; max2=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilis√©es, en d√©duire les clefs les + probables et les montrer √† l'utilisateur.
 		}
 		for(int k=0;k<224;k++) {
-			if(tab[k]>max3 && k!=elementmax1 && k!=elementmax2){elementmax3=k; max3=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilisÈes, en dÈduire les clefs les + probables et les montrer ‡ l'utilisateur.
+			if(tab[k]>max3 && k!=elementmax1 && k!=elementmax2){elementmax3=k; max3=tab[k];}; // On regarde si ca marche bien pour le moment (il ne reste plus qu'a chercher les 2-3 lettres les + utilis√©es, en d√©duire les clefs les + probables et les montrer √† l'utilisateur.
 		}
 		System.out.println(freq[elementmax1]+" "+freq[elementmax2]+" "+freq[elementmax3]);
-		
-		// Il ne reste plus qu'‡ afficher les clefs les plus probables
+
+		// Il ne reste plus qu'√† afficher les clefs les plus probables
 		//int cleflaplusprobable=0;
 		if(freq[elementmax1]-freq[0]<0) cleflaplusprobable=256+(freq[elementmax1]-freq[0]);
 		else cleflaplusprobable=(freq[elementmax1]-freq[0]);
-		
+
 		if(freq[elementmax2]-freq[0]<0) deuxiemecleflaplusprobable=256+(freq[elementmax2]-freq[0]);
 		else deuxiemecleflaplusprobable=(freq[elementmax2]-freq[0]);
-		
+
 		if(freq[elementmax3]-freq[0]<0) troisiemecleflaplusprobable=256+(freq[elementmax3]-freq[0]);
 		else troisiemecleflaplusprobable=(freq[elementmax3]-freq[0]);
 

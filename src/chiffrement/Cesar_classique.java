@@ -1,7 +1,7 @@
 package chiffrement;
 
 /**
- * Cryptage type César (Lettres minuscules et majuscules)
+ * Cryptage type CÃ©sar (Lettres minuscules et majuscules)
  */
 public class Cesar_classique {
 
@@ -9,14 +9,14 @@ public class Cesar_classique {
 	private String texte;
 
 	/**
-	 * Element à chiffrer/déchiffrer
+	 * Element Ã  chiffrer/dÃ©chiffrer
 	 */
 	public Cesar_classique(String texte) {
 		this.texte = texte;
 	}
-	
+
 	/**
-	 * Chiffrement César
+	 * Chiffrement CÃ©sar
 	 */
 	public String chiffrer(int decalage) {
 		StringBuilder sb = new StringBuilder(texte.length());
@@ -31,16 +31,16 @@ public class Cesar_classique {
 		}
 		return sb.toString();
 	}
-	
+
 	/**
-	 * Déchiffrement César
+	 * DÃ©chiffrement CÃ©sar
 	 */
 	public String dechiffrer(int decalage) {
 		return chiffrer(-decalage);
 	}
 
 	/**
-	 * Décalage de "decalage" d'un caractère "caractere"
+	 * DÃ©calage de "decalage" d'un caractÃ¨re "caractere"
 	 */
 	private static char decaleVar(char caractere, int decalage, char caractereBase) {
 		int base = caractereBase;
@@ -49,24 +49,24 @@ public class Cesar_classique {
 		}
 		return (char) (((caractere) - base + decalage) % TAILLE_ALPHABET + base);
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 
 
 		/**String messageacacher = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		int key = 10;
-		System.out.println("Cryptage de Cesar_classique :\nClef : "+key+"\nTexte à chiffrer : "+messageacacher);		
+		System.out.println("Cryptage de Cesar_classique :\nClef : "+key+"\nTexte Ã  chiffrer : "+messageacacher);
 
 		Cesar_classique Cesar_classique1 = new Cesar_classique(messageacacher);
 		String messagechiffe=Cesar_classique1.chiffrer(key);
-		System.out.println("Message chiffré :    "+messagechiffe);
-			
+		System.out.println("Message chiffrÃ© :    "+messagechiffe);
+
 
 		Cesar_classique Cesar_classique2 = new Cesar_classique(messagechiffe);
 		String messagedechiffe=Cesar_classique2.dechiffrer(key);
-		System.out.println("Message déchiffré :  "+messagedechiffe+"\n");*/
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe+"\n");*/
 	}
-	
-	
+
+
 }

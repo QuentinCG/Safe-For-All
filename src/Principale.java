@@ -13,7 +13,7 @@ public class Principale {
 
 		
 		
-		new Fenetre("Safe for all v1.0 (Programme de cryptologie en Java créé par Quentin Comte-Gaz)");
+		new Fenetre("Safe for all v1.0 (Programme de cryptologie en Java crÃ©Ã© par Quentin Comte-Gaz)");
 		
 
 		
@@ -24,110 +24,110 @@ public class Principale {
 		SaveFile sauvegarde = new SaveFile(monadresse,moncontenu);
 		*/
 		
-		/* Vigenère : */
+		/* VigenÃ¨re : */
 		/*
 		String key = "CLEFdeceTYPE";
         String messageacacher = "Mon super site : Http://quentincg.free.fr/ !";
-    	System.out.println("Cryptage Vigenère : \nClef : "+key+"\nTexte à chiffrer : "+messageacacher);
+    	System.out.println("Cryptage VigenÃ¨re : \nClef : "+key+"\nTexte Ã  chiffrer : "+messageacacher);
     	Vigenere achiffrer = new Vigenere(messageacacher);
         String enc = achiffrer.chiffrer(key);
-        System.out.println("Message chiffré : "+enc);
+        System.out.println("Message chiffrÃ© : "+enc);
         
         Vigenere adechiffrer = new Vigenere(enc);
-        System.out.println("Message déchiffré : "+adechiffrer.dechiffrer(key)+"\n");
+        System.out.println("Message dÃ©chiffrÃ© : "+adechiffrer.dechiffrer(key)+"\n");
         */
         
-		/* Vigenère amélioré : */
+		/* VigenÃ¨re amÃ©liorÃ© : */
 		/*
 		String key = "CLEFDECETYPE";
-        String messageacacher = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&é\"'(-è_çàMon super site : Http://quentincg.free.fr/ !";
-    	System.out.println("Cryptage Vigenère : \nClef :             "+key+key+key+key+key+key+key+key+"\nTexte à chiffrer : "+messageacacher);
+        String messageacacher = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&Ã©\"'(-Ã¨_Ã§Ã Mon super site : Http://quentincg.free.fr/ !";
+    	System.out.println("Cryptage VigenÃ¨re : \nClef :             "+key+key+key+key+key+key+key+key+"\nTexte Ã  chiffrer : "+messageacacher);
     	Vigenere_complet achiffrer = new Vigenere_complet(messageacacher);
         String enc = achiffrer.chiffrer(key);
-        System.out.println("Message chiffré :  "+enc);
+        System.out.println("Message chiffrÃ© :  "+enc);
         
         Vigenere_complet adechiffrer = new Vigenere_complet(enc);
-        System.out.println("Message déchiffré :"+adechiffrer.dechiffrer(key)+"\n");
+        System.out.println("Message dÃ©chiffrÃ© :"+adechiffrer.dechiffrer(key)+"\n");
 		
 		 */
 		
 		
 		
 		
-        /* César de base (uniquement les lettres minuscules et majuscules) : */
+        /* CÃ©sar de base (uniquement les lettres minuscules et majuscules) : */
        
         /*String messageacacher2 = "Mon super site : Http://quentincg.free.fr/ !";
 		int key2 = 10;
-		System.out.println("Cryptage de César classique :\nClef : "+key2+"\nTexte à chiffrer : "+messageacacher2);		
+		System.out.println("Cryptage de CÃ©sar classique :\nClef : "+key2+"\nTexte Ã  chiffrer : "+messageacacher2);		
 
 		Cesar_classique cesar1 = new Cesar_classique(messageacacher2);
 		String messagechiffe2=cesar1.chiffrer(key2);
-		System.out.println("Message chiffré :    "+messagechiffe2);
+		System.out.println("Message chiffrÃ© :    "+messagechiffe2);
 		
 		Cesar_classique cesar2 = new Cesar_classique(messagechiffe2);
 		String messagedechiffe2=cesar2.dechiffrer(key2);
-		System.out.println("Message déchiffré :  "+messagedechiffe2+"\n");*/
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe2+"\n");*/
 		
 		
-		/* Cesar amélioré (Tout les caractères de la table ASCII sans compter les 32 premiers) : */
+		/* Cesar amÃ©liorÃ© (Tout les caractÃ¨res de la table ASCII sans compter les 32 premiers) : */
 		
 		/*String messageacacher3 = "Mon super site : Http://quentincg.free.fr/ !";
 		int key3 = 10;
-		System.out.println("Cryptage de Cesar amélioré :\nClef : "+key3+"\nTexte à chiffrer : "+messageacacher3);		
+		System.out.println("Cryptage de Cesar amÃ©liorÃ© :\nClef : "+key3+"\nTexte Ã  chiffrer : "+messageacacher3);		
 
 		Cesar_complet cesar3 = new Cesar_complet(messageacacher3);
 		String messagechiffe3=cesar3.chiffrer(key3);
-		System.out.println("Message chiffré :    "+messagechiffe3);
+		System.out.println("Message chiffrÃ© :    "+messagechiffe3);
 		
 		Cesar_complet cesar4 = new Cesar_complet(messagechiffe3);
 		String messagedechiffe3=cesar4.dechiffrer(key3);
-		System.out.println("Message déchiffré :  "+messagedechiffe3+"\n");*/
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe3+"\n");*/
 		
 		
 		/* DES 56 bits */
 		
 		/*String messageacacher4="Mon super site : Http://quentincg.free.fr/ !";
-		String key4 = "Aaù4-9wq";		
-		System.out.println("Cryptage DES 54 bits :\nClef : "+key4+"\nTexte à chiffrer :   "+messageacacher4);
+		String key4 = "AaÃ¹4-9wq";		
+		System.out.println("Cryptage DES 54 bits :\nClef : "+key4+"\nTexte Ã  chiffrer :   "+messageacacher4);
 
 		String messagechiffe4 = DESUtil.binaryStringToReadableMessage(DES.encode(DESUtil.messageToDESBinaryString(messageacacher4), key4));
-		System.out.println("Message chiffré :    "+messagechiffe4);
+		System.out.println("Message chiffrÃ© :    "+messagechiffe4);
 		
 		String messagedechiffe4 = (DESUtil.AsciiDecoding(Binary.binaryStringToIntTable(DES.decode(DESUtil.messageToDESBinaryString(messagechiffe4), key4))));
-		System.out.println("Message déchiffré :  "+messagedechiffe4+"\n");	*/
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe4+"\n");	*/
 			
 		/* AES 128 bits */
 		/*
 		AES aes;
 		byte b[]= null;
-		String messageacacher5="Message décryptédfgdf dfgdfg";
-		String key5 = "Clef de cryptage"; //Il faut une clé de 16 octets dans la version 128bits (16*8) de AES
-		System.out.println("Cryptage AES 128 bits :\nClef : "+key5+"\nTexte à chiffrer :   "+messageacacher5);
+		String messageacacher5="Message dÃ©cryptÃ©dfgdf dfgdfg";
+		String key5 = "Clef de cryptage"; //Il faut une clÃ© de 16 octets dans la version 128bits (16*8) de AES
+		System.out.println("Cryptage AES 128 bits :\nClef : "+key5+"\nTexte Ã  chiffrer :   "+messageacacher5);
 		
 		aes = new AES(key5.getBytes());		//Construction de l'objet AES
 		b = messageacacher5.getBytes();		//Chaine a chiffrer sous forme de byte
 		b = aes.chiffrerMess(b);			//Chiffrement du message
 		String messagechiffe5 = new String(b);
-		System.out.println("Message chiffré :    "+messagechiffe5);
+		System.out.println("Message chiffrÃ© :    "+messagechiffe5);
 		
-		String messagedechiffe5 = new String(aes.dechiffrerMess(b));	//Déchiffrement du message chiffré
-		System.out.println("Message déchiffré :  "+messagedechiffe5+"\n");*/	
+		String messagedechiffe5 = new String(aes.dechiffrerMess(b));	//DÃ©chiffrement du message chiffrÃ©
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe5+"\n");*/	
 		
 		/* RSA */
-			/* On choisit ici la taille de la clé (ici : 2048 bits) */
+			/* On choisit ici la taille de la clÃ© (ici : 2048 bits) */
 		/*RSA rsa = new RSA(2048);	
 		String messageacacher6 = "Mon super site : Http://quentincg.free.fr/ !";
-		System.out.println("Cryptage RSA xxxx bits (ici, 2048 bits) :\nTexte à chiffrer :   "+messageacacher6);	
+		System.out.println("Cryptage RSA xxxx bits (ici, 2048 bits) :\nTexte Ã  chiffrer :   "+messageacacher6);	
 		
 		byte c[] = rsa.chiffrer(messageacacher6.getBytes());
 		System.out.println("Clef publique : "+rsa.getPublicKey());
-		System.out.println("Clef privée : "+rsa.getPrivateKey());
+		System.out.println("Clef privÃ©e : "+rsa.getPrivateKey());
 		String messagechiffe6=new String(c);
-		System.out.println("Message chiffré :    "+messagechiffe6);	
+		System.out.println("Message chiffrÃ© :    "+messagechiffe6);	
 		
 		c = rsa.dechiffrer(c);
 		String messagedechiffe6 = new String(c);
-		System.out.println("Message déchiffré :  "+messagedechiffe6+"\n");*/
+		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe6+"\n");*/
 		
 	}
 
