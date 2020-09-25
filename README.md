@@ -11,6 +11,8 @@ It can also try to attack those algorithm (working with Cesar and partially with
 It is possible to export in pdf format encrypting/decrypting done in the application (for training purpose).
 You can also export/import encrypted/decrypted files and keys for future use or for other usage.
 
+More detail available on this <a href="https://github.com/QuentinCG/Safe-For-All/blob/master/Safe-For-All.pdf">pdf documentation</a>
+
 <img src="demo.png" width="600">
 
 
