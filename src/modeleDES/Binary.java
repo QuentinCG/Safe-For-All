@@ -6,35 +6,35 @@ import java.util.*;
  */
 
 public class Binary {
-
+	
 	/**
-	 * <p>
+	 * <p> 
 	 * 	Si le parametre est une representation d'un nombre binaire, elle retourne un buffer de byte. Selon le
 	 *  principe que un caractere est code sur 8 bits.
 	 * </p>
 	 * @param param Representation binaire a convertir en byte
-	 * @return Valeur decimal du parametre
+	 * @return Valeur decimal du parametre 
 	 * @throws Exception Erreur lancee lorsque le code ne peut s'executer correctement.
 	 */
 	public static final ArrayList<Integer> binaryStringToIntTable(String param) throws Exception {
 		if(!Binary.isBinaryRepresentation(param)) throw new Exception ("Erreur Lors de la conversion binaire-entier");
-
+				
 		if( (param.length()%8)!=0)
 			throw new Exception("La chaine binaire ne peut etre converti en suite d'entiers");
-
-		int i = 0, incr = 8 ;
-		ArrayList<Integer> buffer = new ArrayList<Integer>();
+		
+		int i = 0, incr = 8 ;						
+		ArrayList<Integer> buffer = new ArrayList<Integer>();			
 		while(i<param.length()){
 			int end  = ( (i+incr)<param.length() )? (i+incr):param.length() ;
 			String substr = param.substring(i,end);
-			int val = binaryStringToInt(substr);
+			int val = binaryStringToInt(substr);				
 			if(val<DESConstant.MIN_ASCII || val>DESConstant.MAX_ASCII) throw new Exception("Erreur La chaine binaire ne peut etre converti en Suite d'entiers");
-			buffer.add(val);
+			buffer.add(val);								
 			i+=incr;
-		}
+		}			
 		return buffer;
 	}
-
+	
 	/**
 	 * <p>Retourne la conversion en decimal du parametre si il existe, sinon -1</p>
 	 * @param param Representation Binaire
@@ -44,15 +44,15 @@ public class Binary {
 	public static final int binaryStringToInt(String param)throws Exception {
 		if(!Binary.isBinaryRepresentation(param)) throw new Exception ("Erreur Lors de la conversion binaire-entier");
 		int pow = 0;
-		int result=0 ;
-		for(int i=param.length()-1;i>=0;i--) {
+		int result=0 ;			
+		for(int i=param.length()-1;i>=0;i--) {				
 			result+= (param.charAt(i)=='1'? 1:0)* ((int)Math.pow(2, pow)) ;
 			pow++;
 		}
 		return result ;
 	}
-
-
+	
+			
 	/**
 	 * <p> Converti le parametre a une chaine binaire.</p>
 	 * @param param Parametre dont on veut obtenir une representation binaire.
@@ -64,11 +64,11 @@ public class Binary {
 			result = "";
 			for(int i=0;i<param.size();i++){
 				result+=Binary.intToBinaryString(param.get(i));
-			}
+			}			
 		}
 		return result;
 	}
-
+	
 	/**
 	 * <p>Retourne une chaine representant la conversion binaire du parametre.</p>
 	 * @param param Parametre a convertir.
@@ -81,7 +81,7 @@ public class Binary {
 			int val = param ;
 			while(val>1){
 				result= (val%2)+ result;
-				val/=2;
+				val/=2; 
 			}
 			result= val+result ;
 			int size = 8-result.length() ;
@@ -89,26 +89,26 @@ public class Binary {
 		}
 		return result;
 	}
-
+	
 	/**
 	 * <p>Dit si le prametre est la representation d'un nombre binaire.</p>
 	 * @param param Chaine a verifier.
 	 * @return True si param est un nombre binaire et False dans le cas contraire.
 	 */
-	public static final boolean isBinaryRepresentation(String param){
+	public static final boolean isBinaryRepresentation(String param){		
 		if(param!=null && param.length()>0){
-			boolean result = true ;
-			for(int i=0;i<param.length();i++){
+			boolean result = true ;			
+			for(int i=0;i<param.length();i++){ 
 				if(param.charAt(i)!='0' && param.charAt(i)!='1'){
 					result = false ;
 					break;
 				}
-			}
+			}		
 			return result ;
-
-		}else return false ;
+			
+		}else return false ;		
 	}
-
+	
 	/**
 	 * <p>Calcule le XOR de a et b. A condition que a et b soit des representations de nombres binaires.</p>
 	 * @param a Operande 1
@@ -119,18 +119,18 @@ public class Binary {
 	public static final String xor(String a, String b)throws Exception {
 		String result = null ;
 		if(!Binary.isBinaryRepresentation(a) || !Binary.isBinaryRepresentation(b)) throw new Exception ("Erreur lors de l'application de Xor.Un parametre n'est pas une chaine binaire");
-
+					
 		result = "";
 		String param1 = a ;
 		String param2 = b;
-
+		
 		if(param1.length()<param2.length()) for(int i=0;i<(param2.length()-param1.length());i++) param1="0"+param1 ;
 		else if(param2.length()<param1.length()) for(int i=0;i<(param1.length()-param2.length());i++) param2="0"+param2 ;
-
-		for(int i=0;i<param1.length();i++)
-			result+= Integer.parseInt(""+param1.charAt(i))^Integer.parseInt(""+param2.charAt(i));
-
+				
+		for(int i=0;i<param1.length();i++) 
+			result+= Integer.parseInt(""+param1.charAt(i))^Integer.parseInt(""+param2.charAt(i));			
+		
 		return result ;
 	}
-
+	
 }

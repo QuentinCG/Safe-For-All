@@ -1,44 +1,44 @@
 package chiffrement;
 
 /**
- * Cryptage type CÃ©sar complet (les 224 Ã©lÃ©ments dans la table ASCII commencant par l'element nÂ°32)
+ * Cryptage type César complet (les 224 éléments dans la table ASCII commencant par l'element n°32)
  */
 public class Cesar_complet {
 
-	private static final int TAILLE_ALPHABET = 224; /* 224 Ã©lÃ©ments dans la table ASCII commencant par l'element nÂ°32 (car avant : ce ne sont pas des caractÃ¨res) */
+	private static final int TAILLE_ALPHABET = 224; /* 224 éléments dans la table ASCII commencant par l'element n°32 (car avant : ce ne sont pas des caractères) */
 	private String texte;
-
+	
 	/**
-	 * Element Ã  chiffrer/dÃ©chiffrer
+	 * Element à chiffrer/déchiffrer
 	 */
 	public Cesar_complet(String texte) {
 		this.texte = texte;
 	}
-
+	
 	/**
-	 * Chiffrement CÃ©sar complet
+	 * Chiffrement César complet
 	 */
 	public String chiffrer(int decalage) {
 		StringBuilder sb = new StringBuilder(texte.length());
 		for (char c : texte.toCharArray()) {
-			if (c >= ' ' && c <= 255) {
+			if (c >= ' ' && c <= 'ÿ') {
 				sb.append(decaleVar(c, decalage, ' '));
-			} else {
+			}else {
 				sb.append(c);
 			}
 		}
 		return sb.toString();
 	}
-
+	
 	/**
-	 * DÃ©chiffrement CÃ©sar complet
+	 * Déchiffrement César complet
 	 */
 	public String dechiffrer(int decalage) {
 		return chiffrer(-decalage);
 	}
 
 	/**
-	 * DÃ©calage de "decalage" d'un caractÃ¨re "caractere"
+	 * Décalage de "decalage" d'un caractère "caractere"
 	 */
 	private static char decaleVar(char caractere, int decalage, char caractereBase) {
 		int base = caractereBase;
@@ -49,22 +49,22 @@ public class Cesar_complet {
 	}
 	/**
 	public static void main(String[] args) {
-
+		
 
 
 		String messageacacher = "Bonjour, je m'appelle Quentin, J'ai 22 ans !";
 		int key = 10;
-		System.out.println("Cryptage de Cesar_complet :\nClef : "+key+"\nTexte Ã  chiffrer : "+messageacacher);
+		System.out.println("Cryptage de Cesar_complet :\nClef : "+key+"\nTexte à chiffrer : "+messageacacher);		
 
 		Cesar_complet Cesar1 = new Cesar_complet(messageacacher);
 		String messagechiffe=Cesar1.chiffrer(key);
-		System.out.println("Message chiffrÃ© :    "+messagechiffe);
-
+		System.out.println("Message chiffré :    "+messagechiffe);
+			
 
 		Cesar_complet Cesar2 = new Cesar_complet(messagechiffe);
 		String messagedechiffe=Cesar2.dechiffrer(key);
-		System.out.println("Message dÃ©chiffrÃ© :  "+messagedechiffe+"\n");
+		System.out.println("Message déchiffré :  "+messagedechiffe+"\n");
 	}*/
-
-
+	
+	
 }
