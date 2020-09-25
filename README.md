@@ -1,6 +1,6 @@
 # Safe For All (explain how cryptology works)
 
-[![Build Status](https://travis-ci.com/QuentinCG/Safe-For-All.svg?branch=master)](https://travis-ci.com/github/QuentinCG/Safe-For-All) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/QPortKnocking/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/QuentinCG)
+[![Build Status](https://travis-ci.com/QuentinCG/Safe-For-All.svg?branch=master)](https://travis-ci.com/github/QuentinCG/Safe-For-All) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/QuentinCG/Safe-For-All/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/QuentinCG)
 
 ## What is it
 
