@@ -30,6 +30,7 @@ More detail available on this <a href="https://github.com/QuentinCG/Safe-For-All
 
 This Java application was designed when I was at school and didn't have a lot of knowledge in coding.
 It is therefore working but not optimized.
+Moreover, the code is written with French class name and French comments. It can be good to take some ideas from it to your own application but I would not advise to try to improve this application.
 
 
 ## License
